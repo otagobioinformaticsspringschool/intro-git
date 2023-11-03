@@ -1,3 +1,5 @@
+# Setup
+
 !!! clipboard-list "Lesson Objectives"
 
     - Configure `git` the first time it is used on a computer.
@@ -22,7 +24,7 @@ set up your computer - replacing the values in the <> with your information:
     $ git config --global user.email "<username@email.com>"
     ```
 
-Please use your own name and email address instead of Dracula's. This user name and email will be associated with your subsequent Git activity,
+Please use your own name and email address. This user name and email will be associated with your subsequent Git activity,
 which means that any changes pushed to
 [GitHub](https://github.com/),
 [BitBucket](https://bitbucket.org/),
@@ -96,8 +98,8 @@ It is possible to reconfigure the text editor for Git whenever you want to chang
     If you want to save your changes and quit, press <kbd>Esc</kbd> then type `:wq` and hit <kbd>Enter</kbd> or <kbd>↵</kbd> or on Macs, <kbd>Return</kbd>.
 
 Git (2.28+) allows configuration of the name of the branch created when you
-initialize any new repository. Dracula decides to use that feature to set it to `main` so
-it matches the cloud service he will eventually use.
+initialize any new repository. We will use this feature to set it to `main` so
+it matches the cloud service we will eventually use.
 
 !!! terminal-2
 
