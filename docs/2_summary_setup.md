@@ -2,8 +2,17 @@
 
 !!! clipboard-list "Lesson Objectives"
 
+    - Create a github account
     - Configure `git` the first time it is used on a computer.
     - Understand the meaning of the `--global` configuration flag.
+
+## Create a Github account
+
+Before we get started with Git we're going to create an account on Github
+
+Head over to https://github.com and create a free account if you don't already have one. Once you have an account we can configure Git on your machine.
+
+## Configuring Git
 
 When we use Git on a new computer for the first time,
 we need to configure a few things. Below are a few examples
