@@ -160,7 +160,7 @@ A nested repository is redundant and may cause confusion
 down the road. We would like to remove the nested repository. How can we undo
 the last `git init` in the `ecoli` subdirectory?
 
-!!! file-code "Solution -- USE WITH CAUTION!"
+??? file-code "Solution -- USE WITH CAUTION!"
 
     **Background**
 
@@ -178,21 +178,23 @@ the last `git init` in the `ecoli` subdirectory?
     If the files or folder being removed in this fashion are tracked by Git, then their removal
     becomes another change that we will need to track, as we will see in the next episode.
 
-    ??? Solution
 
-        Git keeps all of its files in the `.git` directory.
-        To recover from this little mistake, we can just remove the `.git`
-        folder in the ecoli subdirectory by running the following command from inside the `vc_project` directory:
 
-        !!! terminal-2
+    **Solution**
 
-            ```bash
-            $ rm -rf ecoli/.git
-            ```
+    Git keeps all of its files in the `.git` directory.
+    To recover from this little mistake, we can just remove the `.git`
+    folder in the ecoli subdirectory by running the following command from inside the `vc_project` directory:
 
-        But be careful! Running this command in the wrong directory will remove
-        the entire Git history of a project you might want to keep.
-        Therefore, always check your current directory using the command `pwd`.
+    !!! terminal-2
+
+        ```bash
+        $ rm -rf ecoli/.git
+        ```
+
+    But be careful! Running this command in the wrong directory will remove
+    the entire Git history of a project you might want to keep.
+    Therefore, always check your current directory using the command `pwd`.
 
 !!! clipboard-list "keypoints"
 
