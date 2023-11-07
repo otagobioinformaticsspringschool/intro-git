@@ -6,35 +6,31 @@
 
 <!--- check -->
 
-| **Lesson**                                                                                     | **Overview**                                                                                                    |
-| :--------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------- |
-| 1. [Download and verify data](./2_summary_setup.md)                                            | Configuring Git for use                                                                                         |
-| 2. [Streams, Redirection and Pipe](./3_streams_red_pipe.md)                                    | Combining pipes and redirection, Using "Exit" statuses                                                          |
-| 3. [Inspecting and Manipulating Text Data with UNIX Tools - Part 1](./4_inspectmanipluate.md)  | Inspect file/s with utilities such as `head`,`less`. Extracting and formatting tabular data. Magical `grep`.    |
-| 4. [Inspecting and Manipulating Text Data with UNIX Tools - Part 2](./5_inspectmanipulate2.md) | Substitute matching patterns with `sed`. Text processing with `awk` and `bioawk`                                |
-| 5. [Automating File-Processing with find and xargs](./6_automate_fileprocessing_find_xargs.md) | Search files by pattern with `find` and use `xargs` to execute a command for those objects matching the pattern |
-| 6. [Puzzles](./puzzles.md) 🧩                                                                  | Can you use shell scripts to solve these "real" life challenges in molecular biology ?                          |
-| 7. [Supplementary - 1](./supplementary%20/supplementary_1.md)                                  | Recap - Unix , Linux and Unix shell                                                                             |
-| 8. [Supplementary - 2](./supplementary%20/supplementary_2.md)                                  | Recap - Shell basics and commands                                                                               |
-| 9. [Supplementary - 3](./supplementary%20/supplementary_3.md)                                  | Escaping, Special Characters                                                                                    |
+| **Lesson**                                     | **Overview**                                                  |
+| :--------------------------------------------- | :------------------------------------------------------------ |
+| 1. [Setting up Git](./2_summary_setup.md)      | Configuring Git for use                                       |
+| 2. [Creating a repository](./3_create_repo.md) | Creating a local git repository                               |
+| 3. [Tracking Changes](./4_tracking_changes.md) | Adding and commiting files                                    |
+| 4. [Exploring History](./5_history.md)         | Comparing various versions of tracked files                   |
+| 5. [Ignoring Things](./6_ignoring_things.md)   | Excluding specific files and directories from version control |
+| 6. [Remotes in Github](./7_remotes.md)         | Pushing and pulling from a remote repository                  |
+|                                                |
 
 ---
 
 !!! copyright "Attribution Notice"
 
     * This workshop material is heavily inspired by :
-        1. Buffalo, V (2015). ***Bioinformatics Data Skills***.O'Reilly Media, Inc
-        2. The Carpentries. ***The Unix Shell*** . https://swcarpentry.github.io/shell-novice/
-        3. The Carpentries. ***Introduction to Command Line for Genomics***. https://datacarpentry.org/shell-genomics/
-        4. Rosalind Project. https://rosalind.info/about/
+        1. [Software Carpentry Introduction to Version Control with Git](https://swcarpentry.github.io/git-novice/) and
+        2. [Happy Git with R](https://happygitwithr.com)
 
 ---
 
-!!! key "License"
+<!-- !!! key "License"
 
-    Genomics Aotearoa / New Zealand eScience Infrastructure "Intermediate Shell for Bioinformatics" is licensed under the **GNU General Public License v3.0, 29 June 2007** . ([Follow this link for more information](https://github.com/GenomicsAotearoa/shell-for-bioinformatics/blob/main/LICENSE))
+    Genomics Aotearoa / New Zealand eScience Infrastructure "Intro to Git" is licensed under the **GNU General Public License v3.0, 29 June 2007** . ([Follow this link for more information](https://github.com/GenomicsAotearoa/shell-for-bioinformatics/blob/main/LICENSE))
 
----
+--- -->
 
 !!! screwdriver-wrench "Setup"
 
@@ -61,10 +57,7 @@
 
         === "Windows Hosts"
 
-            * Install either
-              - Git for Windows from [https://git-scm.com/download/win](https://git-scm.com/download/win) **OR**
-              - MobaXterm Home (*Portable* or *Installer* edition) from [https://mobaxterm.mobatek.net/download-home-edition.html](https://mobaxterm.mobatek.net/download-home-edition.html)
-                  * Portable edition does not require administrative privileges
+              * Git for Windows from [https://git-scm.com/download/win](https://git-scm.com/download/win)
 
         === "MacOS"
 
@@ -75,7 +68,3 @@
         === "Linux"
 
               * Native terminal client is sufficient.
-
-        !!! warning "`bioawk` install on all hosts"
-
-            One of the tools used in this workshop is `bioawk` which is not a native Linu/UNIX utility. Installing it on MacOS and Linux can be done with `$ brew install bioawk` & `$ sudo apt install bioawk`, respectively. Windows hosts might have to do it via `conda` according to [these instructions](https://anaconda.org/bioconda/bioawk). However, this will require a prior install of **Anaconda** Or **Miniconda**
