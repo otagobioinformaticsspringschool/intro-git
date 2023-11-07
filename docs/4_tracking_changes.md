@@ -184,7 +184,7 @@ the commit's author,
 when it was created,
 and the log message Git was given when the commit was created.
 
-!!! "Where Are My Changes?"
+!!! material-bell "Where Are My Changes?"
 
     If we run `ls` at this point, we will still see just one file called `README.txt`.
     That's because Git saves information about files' history
@@ -196,33 +196,38 @@ Now suppose Dracula adds more information to the file.
 (Again, we'll edit with `nano` and then `cat` the file to show its contents;
 you may use a different editor, and don't need to `cat`.)
 
-```bash
-$ nano mars.txt
-$ cat mars.txt
-```
+!!! terminal-2
 
-```output
-Cold and dry, but everything is my favorite color
-The two moons may be a problem for Wolfman
-```
+    ```bash
+    $ nano README.txt
+    $ cat README.txt
+    ```
+
+    ```output
+    Project notes for the variant calling workflow
+
+    1. Perform QC
+    ```
 
 When we run `git status` now,
 it tells us that a file it already knows about has been modified:
 
-```bash
-$ git status
-```
+!!! terminal-2
 
-```output
-On branch main
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git checkout -- <file>..." to discard changes in working directory)
+    ```bash
+    $ git status
+    ```
 
-	modified:   mars.txt
+    ```output
+    On branch main
+    Changes not staged for commit:
+    (use "git add <file>..." to update what will be committed)
+    (use "git checkout -- <file>..." to discard changes in working directory)
 
-no changes added to commit (use "git add" and/or "git commit -a")
-```
+        modified:   README.txt
+
+    no changes added to commit (use "git add" and/or "git commit -a")
+    ```
 
 The last line is the key phrase:
 "no changes added to commit".
@@ -235,19 +240,22 @@ our changes before saving them. We do this using `git diff`.
 This shows us the differences between the current state
 of the file and the most recently saved version:
 
-```bash
-$ git diff
-```
+!!! terminal-2
 
-```output
-diff --git a/mars.txt b/mars.txt
-index df0654a..315bf3a 100644
---- a/mars.txt
-+++ b/mars.txt
-@@ -1 +1,2 @@
- Cold and dry, but everything is my favorite color
-+The two moons may be a problem for Wolfman
-```
+    ```bash
+    $ git diff
+    ```
+
+    ```output
+    diff --git a/README.txt b/README.txt
+    index df0654a..315bf3a 100644
+    --- a/README.txt
+    +++ b/README.txt
+    @@ -1 +1,2 @@
+    Project notes for the variant calling workflow
+    +
+    +1. Perform QC
+    ```
 
 The output is cryptic because
 it is actually a series of commands for tools like editors and `patch`
@@ -268,7 +276,7 @@ If we break it down into pieces:
 After reviewing our change, it's time to commit it:
 
 ```bash
-$ git commit -m "Add concerns about effects of Mars' moons on Wolfman"
+$ git commit -m "Add first step of workflow"
 ```
 
 ```output
@@ -277,7 +285,7 @@ Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git checkout -- <file>..." to discard changes in working directory)
 
-	modified:   mars.txt
+	modified:   README.txt
 
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
@@ -287,13 +295,13 @@ Git won't commit because we didn't use `git add` first.
 Let's fix that:
 
 ```bash
-$ git add mars.txt
-$ git commit -m "Add concerns about effects of Mars' moons on Wolfman"
+$ git add README.txt
+$ git commit -m "Add first step of workflow"
 ```
 
 ```output
-[main 34961b1] Add concerns about effects of Mars' moons on Wolfman
- 1 file changed, 1 insertion(+)
+[main 34961b1] Add first step of workflow
+ 1 file changed, 2 insertion(+)
 ```
 
 Git insists that we add files to the set we want to commit
