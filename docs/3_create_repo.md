@@ -160,7 +160,7 @@ A nested repository is redundant and may cause confusion
 down the road. We would like to remove the nested repository. How can we undo
 the last `git init` in the `ecoli` subdirectory?
 
-!!! Solution -- USE WITH CAUTION!
+!!! "Solution -- USE WITH CAUTION!"
 
     ### Background
 
