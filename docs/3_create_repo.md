@@ -8,35 +8,19 @@
 Once Git is configured,
 we can start using it.
 
-We will continue with the story of Wolfman and Dracula who are investigating if it
-is possible to send a planetary lander to Mars.
+We're going to use the Genomic Variant Calling workshop as the basis for our repository
 
-![](fig/motivatingexample.png){alt='motivatingexample'}
-[Werewolf vs dracula](https://www.deviantart.com/b-maze/art/Werewolf-vs-Dracula-124893530)
-by [b-maze](https://www.deviantart.com/b-maze) / [Deviant Art](https://www.deviantart.com/).
-[Mars](https://en.wikipedia.org/wiki/File:OSIRIS_Mars_true_color.jpg) by European Space Agency /
-[CC-BY-SA 3.0 IGO](https://creativecommons.org/licenses/by/3.0/deed.en).
-[Pluto](https://commons.wikimedia.org/wiki/File:PIA19873-Pluto-NewHorizons-FlyingPastImage-20150714-transparent.png) /
-Courtesy NASA/JPL-Caltech.
-[Mummy](https://commons.wikimedia.org/wiki/File:Mummy_icon_-_Noun_Project_4070.svg)
-© Gilad Fried / [The Noun Project](https://thenounproject.com/) /
-[CC BY 3.0](https://creativecommons.org/licenses/by/3.0/deed.en).
-[Moon](https://commons.wikimedia.org/wiki/File:Lune_ico.png)
-© Luc Viatour / [https://lucnix.be](https://lucnix.be/) /
-[CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/deed.en).
-
-First, let's create a new directory in the `Desktop` folder for our work and then change the current working directory to the newly created one:
+First, let's navigate into the directory for the lesson `~/obss_2023/intro-git` and create a new directory `vc_project` there for our repository to live in:
 
 !!! terminal-2
 
     ```bash
-    $ cd ~/Desktop
-    $ mkdir planets
-    $ cd planets
+    $ cd ~/obss_2023/intro-git
+    $ mkdir vc_project
+    $ cd vc_project
+    ```
 
-`````
-
-Then we tell Git to make `planets` a [repository](../learners/reference.md#repository)
+Then we tell Git to make `vc_project` a repository
 \-- a place where Git can store versions of our files:
 
 !!! terminal-2
@@ -47,9 +31,9 @@ Then we tell Git to make `planets` a [repository](../learners/reference.md#repos
 
 It is important to note that `git init` will create a repository that
 can include subdirectories and their files---there is no need to create
-separate repositories nested within the `planets` repository, whether
+separate repositories nested within the `vc_project` repository, whether
 subdirectories are present from the beginning or added later. Also, note
-that the creation of the `planets` directory and its initialization as a
+that the creation of the `vc_project` directory and its initialization as a
 repository are completely separate processes.
 
 If we use `ls` to show the directory's contents,
@@ -62,7 +46,7 @@ it appears that nothing has changed:
     ```
 
 But if we add the `-a` flag to show everything,
-we can see that Git has created a hidden directory within `planets` called `.git`:
+we can see that Git has created a hidden directory within `vc_project` called `.git`:
 
 !!! terminal-2
 
@@ -71,6 +55,7 @@ we can see that Git has created a hidden directory within `planets` called `.git
     ```
 
 !!! terminal-2
+
     ```output
     .	..	.git
     ```
@@ -83,7 +68,7 @@ we will lose the project's history.
 Next, we will change the default branch to be called `main`.
 This might be the default branch depending on your settings and version
 of git.
-See the [setup episode](02-setup.md#default-git-branch-naming) for more information on this change.
+See the [setup episode](2_summary_setup.md#default-git-branch-naming) for more information on this change.
 
 !!! terminal-2
 
@@ -99,7 +84,6 @@ See the [setup episode](02-setup.md#default-git-branch-naming) for more informat
 
 We can check that everything is set up correctly
 by asking Git to tell us the status of our project:
-
 
 !!! terminal-2
 
@@ -169,9 +153,9 @@ above:
     ```
 
 !!! terminal-2
-    ```output
+`output
     fatal: Not a git repository (or any of the parent directories): .git
-    ```
+    `
 
 :::::::::::::::::::::::::
 
@@ -226,5 +210,6 @@ Therefore, always check your current directory using the command `pwd`.
     - `git init` initializes a repository.
     - Git stores all of its repository data in the `.git` directory.
 
+```
 
-`````
+```
