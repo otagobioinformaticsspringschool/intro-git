@@ -352,31 +352,40 @@ and into long-term storage.
 First,
 we'll add another line to the file:
 
-```bash
-$ nano mars.txt
-$ cat mars.txt
-```
+!!! terminal-2
 
-```output
-Cold and dry, but everything is my favorite color
-The two moons may be a problem for Wolfman
-But the Mummy will appreciate the lack of humidity
-```
+    ```bash
+    $ nano READEME.txt
+    $ cat README.txt
+    ```
 
-```bash
-$ git diff
-```
+!!! terminal-2
 
-```output
-diff --git a/mars.txt b/mars.txt
-index 315bf3a..b36abfd 100644
---- a/mars.txt
-+++ b/mars.txt
-@@ -1,2 +1,3 @@
- Cold and dry, but everything is my favorite color
- The two moons may be a problem for Wolfman
-+But the Mummy will appreciate the lack of humidity
-```
+    ```output
+    Project notes for the variant calling workflow
+
+    1. Perform QC
+    2. Align reads
+    ```
+
+!!! terminal-2
+`bash
+    $ git diff
+    `
+
+!!! terminal-2
+
+    ```output
+    diff --git a/README.txt b/README.txt
+    index 315bf3a..b36abfd 100644
+    --- a/README.txt
+    +++ b/README.txt
+    @@ -1,2 +1,3 @@
+     Project notes for the variant calling workflow
+
+     1. Perform QC
+    +2. Align reads
+    ```
 
 So far, so good:
 we've added one line to the end of the file
@@ -385,7 +394,7 @@ Now let's put that change in the staging area
 and see what `git diff` reports:
 
 ```bash
-$ git add mars.txt
+$ git add README.txt
 $ git diff
 ```
 
@@ -396,71 +405,87 @@ and what's currently in the directory.
 However,
 if we do this:
 
-```bash
-$ git diff --staged
-```
+!!! terminal-2
 
-```output
-diff --git a/mars.txt b/mars.txt
-index 315bf3a..b36abfd 100644
---- a/mars.txt
-+++ b/mars.txt
-@@ -1,2 +1,3 @@
- Cold and dry, but everything is my favorite color
- The two moons may be a problem for Wolfman
-+But the Mummy will appreciate the lack of humidity
-```
+    ```bash
+    $ git diff --staged
+    ```
+
+!!! terminal-2
+
+    ```output
+    diff --git a/README.txt b/README.txt
+    index 315bf3a..b36abfd 100644
+    --- a/README.txt
+    +++ b/README.txt
+    @@ -1,2 +1,3 @@
+     Project notes for the variant calling workflow
+
+     1. Perform QC
+    +2. Align reads
+    ```
 
 it shows us the difference between
 the last committed change
 and what's in the staging area.
 Let's save our changes:
 
-```bash
-$ git commit -m "Discuss concerns about Mars' climate for Mummy"
-```
+!!! terminal-2
+`bash
+    $ git commit -m "add alignment step"
+    `
 
-```output
-[main 005937f] Discuss concerns about Mars' climate for Mummy
- 1 file changed, 1 insertion(+)
-```
+!!! terminal-2
+
+    ```output
+    [main 005937f] add alignment step
+    1 file changed, 1 insertion(+)
+    ```
 
 check our status:
 
-```bash
-$ git status
-```
+!!! terminal-2
 
-```output
-On branch main
-nothing to commit, working tree clean
-```
+    ```bash
+    $ git status
+    ```
+
+!!! terminal-2
+
+    ```output
+    On branch main
+    nothing to commit, working tree clean
+    ```
 
 and look at the history of what we've done so far:
 
-```bash
-$ git log
-```
+!!! terminal-2
 
-```output
-commit 005937fbe2a98fb83f0ade869025dc2636b4dad5 (HEAD -> main)
-Author: Vlad Dracula <vlad@tran.sylvan.ia>
-Date:   Thu Aug 22 10:14:07 2013 -0400
+    ```bash
+    $ git log
+    ```
 
-    Discuss concerns about Mars' climate for Mummy
+!!! terminal-2
 
-commit 34961b159c27df3b475cfe4415d94a6d1fcd064d
-Author: Vlad Dracula <vlad@tran.sylvan.ia>
-Date:   Thu Aug 22 10:07:21 2013 -0400
+    ```output
+    commit 005937fbe2a98fb83f0ade869025dc2636b4dad5 (HEAD -> main)
+    Author: Vlad Dracula <vlad@tran.sylvan.ia>
+    Date:   Thu Aug 22 10:14:07 2013 -0400
 
-    Add concerns about effects of Mars' moons on Wolfman
+        add alignment step
 
-commit f22b25e3233b4645dabd0d81e651fe074bd8e73b
-Author: Vlad Dracula <vlad@tran.sylvan.ia>
-Date:   Thu Aug 22 09:51:46 2013 -0400
+    commit 34961b159c27df3b475cfe4415d94a6d1fcd064d
+    Author: Vlad Dracula <vlad@tran.sylvan.ia>
+    Date:   Thu Aug 22 10:07:21 2013 -0400
 
-    Start notes on Mars as a base
-```
+        Add first step of workflow
+
+    commit f22b25e3233b4645dabd0d81e651fe074bd8e73b
+    Author: Vlad Dracula <vlad@tran.sylvan.ia>
+    Date:   Thu Aug 22 09:51:46 2013 -0400
+
+        Start notes project
+    ```
 
 ::::::::::::::::::::::::::::::::::::::::: callout
 
@@ -509,7 +534,7 @@ commit 005937fbe2a98fb83f0ade869025dc2636b4dad5 (HEAD -> main)
 Author: Vlad Dracula <vlad@tran.sylvan.ia>
 Date:   Thu Aug 22 10:14:07 2013 -0400
 
-   Discuss concerns about Mars' climate for Mummy
+   add alignment step
 ```
 
 You can also reduce the quantity of information using the
@@ -520,9 +545,9 @@ $ git log --oneline
 ```
 
 ```output
-005937f (HEAD -> main) Discuss concerns about Mars' climate for Mummy
-34961b1 Add concerns about effects of Mars' moons on Wolfman
-f22b25e Start notes on Mars as a base
+005937f (HEAD -> main) add alignment step
+34961b1 Add first step of workflow
+f22b25e Start notes project
 ```
 
 You can also combine the `--oneline` option with others. One useful
@@ -536,9 +561,9 @@ $ git log --oneline --graph
 ```
 
 ```output
-* 005937f (HEAD -> main) Discuss concerns about Mars' climate for Mummy
-* 34961b1 Add concerns about effects of Mars' moons on Wolfman
-* f22b25e Start notes on Mars as a base
+* 005937f (HEAD -> main) add alignment step
+* 34961b1 Add first step of workflow
+* f22b25e Start notes project
 ```
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -602,10 +627,10 @@ repository (`git commit`):
 ## Choosing a Commit Message
 
 Which of the following commit messages would be most appropriate for the
-last commit made to `mars.txt`?
+last commit made to `README.txt`?
 
 1. "Changes"
-2. "Added line 'But the Mummy will appreciate the lack of humidity' to mars.txt"
+2. "Added line 'But the Mummy will appreciate the lack of humidity' to README.txt"
 3. "Discuss effects of Mars' climate on the Mummy"
 
 ::::::::::::::: solution
@@ -667,7 +692,7 @@ $ git commit -m myfile.txt "my recent changes"
 The staging area can hold changes from any number of files
 that you want to commit as a single snapshot.
 
-1. Add some text to `mars.txt` noting your decision
+1. Add some text to `README.txt` noting your decision
    to consider Venus as a base
 2. Create a new file `venus.txt` with your initial thoughts
    about Venus as a base for you and your friends
@@ -678,14 +703,14 @@ that you want to commit as a single snapshot.
 
 ## Solution
 
-The output below from `cat mars.txt` reflects only content added during
+The output below from `cat README.txt` reflects only content added during
 this exercise. Your output may vary.
 
-First we make our changes to the `mars.txt` and `venus.txt` files:
+First we make our changes to the `README.txt` and `venus.txt` files:
 
 ```bash
-$ nano mars.txt
-$ cat mars.txt
+$ nano README.txt
+$ cat README.txt
 ```
 
 ```output
@@ -723,17 +748,17 @@ You should be in the `planets` directory.
 $ cd ~/Desktop/planets
 ```
 
-Let's create a file called `mars.txt` that contains some notes
+Let's create a file called `README.txt` that contains some notes
 about the Red Planet's suitability as a base.
 We'll use `nano` to edit the file;
 you can use whatever editor you like.
 In particular, this does not have to be the `core.editor` you set globally earlier. But remember, the bash command to create or edit a new file will depend on the editor you choose (it might not be `nano`). For a refresher on text editors, check out ["Which Editor?"](https://swcarpentry.github.io/shell-novice/03-create.html#which-editor) in [The Unix Shell](https://swcarpentry.github.io/shell-novice/) lesson.
 
 ```bash
-$ nano mars.txt
+$ nano README.txt
 ```
 
-Type the text below into the `mars.txt` file:
+Type the text below into the `README.txt` file:
 
 ```output
 Cold and dry, but everything is my favorite color
@@ -746,13 +771,13 @@ $ ls
 ```
 
 ```output
-mars.txt
+README.txt
 ```
 
-`mars.txt` contains a single line, which we can see by running:
+`README.txt` contains a single line, which we can see by running:
 
 ```bash
-$ cat mars.txt
+$ cat README.txt
 ```
 
 ```output
@@ -774,7 +799,7 @@ No commits yet
 Untracked files:
    (use "git add <file>..." to include in what will be committed)
 
-	mars.txt
+	README.txt
 
 nothing added to commit but untracked files present (use "git add" to track)
 ```
@@ -784,7 +809,7 @@ that Git isn't keeping track of.
 We can tell Git to track a file using `git add`:
 
 ```bash
-$ git add mars.txt
+$ git add README.txt
 ```
 
 and then check that the right thing happened:
@@ -801,11 +826,11 @@ No commits yet
 Changes to be committed:
   (use "git rm --cached <file>..." to unstage)
 
-	new file:   mars.txt
+	new file:   README.txt
 
 ```
 
-Git now knows that it's supposed to keep track of `mars.txt`,
+Git now knows that it's supposed to keep track of `README.txt`,
 but it hasn't recorded these changes as a commit yet.
 To get it to do that,
 we need to run one more command:
@@ -817,7 +842,7 @@ $ git commit -m "Start notes on Mars as a base"
 ```output
 [main (root-commit) f22b25e] Start notes on Mars as a base
  1 file changed, 1 insertion(+)
- create mode 100644 mars.txt
+ create mode 100644 README.txt
 ```
 
 When we run `git commit`,
@@ -876,7 +901,7 @@ and the log message Git was given when the commit was created.
 
 ## Where Are My Changes?
 
-If we run `ls` at this point, we will still see just one file called `mars.txt`.
+If we run `ls` at this point, we will still see just one file called `README.txt`.
 That's because Git saves information about files' history
 in the special `.git` directory mentioned earlier
 so that our filesystem doesn't become cluttered
@@ -889,8 +914,8 @@ Now suppose Dracula adds more information to the file.
 you may use a different editor, and don't need to `cat`.)
 
 ```bash
-$ nano mars.txt
-$ cat mars.txt
+$ nano README.txt
+$ cat README.txt
 ```
 
 ```output
@@ -911,7 +936,7 @@ Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git checkout -- <file>..." to discard changes in working directory)
 
-	modified:   mars.txt
+	modified:   README.txt
 
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
@@ -932,10 +957,10 @@ $ git diff
 ```
 
 ```output
-diff --git a/mars.txt b/mars.txt
+diff --git a/README.txt b/README.txt
 index df0654a..315bf3a 100644
---- a/mars.txt
-+++ b/mars.txt
+--- a/README.txt
++++ b/README.txt
 @@ -1 +1,2 @@
  Cold and dry, but everything is my favorite color
 +The two moons may be a problem for Wolfman
@@ -969,7 +994,7 @@ Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git checkout -- <file>..." to discard changes in working directory)
 
-	modified:   mars.txt
+	modified:   README.txt
 
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
@@ -979,7 +1004,7 @@ Git won't commit because we didn't use `git add` first.
 Let's fix that:
 
 ```bash
-$ git add mars.txt
+$ git add README.txt
 $ git commit -m "Add concerns about effects of Mars' moons on Wolfman"
 ```
 
@@ -1037,8 +1062,8 @@ First,
 we'll add another line to the file:
 
 ```bash
-$ nano mars.txt
-$ cat mars.txt
+$ nano README.txt
+$ cat README.txt
 ```
 
 ```output
@@ -1052,10 +1077,10 @@ $ git diff
 ```
 
 ```output
-diff --git a/mars.txt b/mars.txt
+diff --git a/README.txt b/README.txt
 index 315bf3a..b36abfd 100644
---- a/mars.txt
-+++ b/mars.txt
+--- a/README.txt
++++ b/README.txt
 @@ -1,2 +1,3 @@
  Cold and dry, but everything is my favorite color
  The two moons may be a problem for Wolfman
@@ -1069,7 +1094,7 @@ Now let's put that change in the staging area
 and see what `git diff` reports:
 
 ```bash
-$ git add mars.txt
+$ git add README.txt
 $ git diff
 ```
 
@@ -1085,10 +1110,10 @@ $ git diff --staged
 ```
 
 ```output
-diff --git a/mars.txt b/mars.txt
+diff --git a/README.txt b/README.txt
 index 315bf3a..b36abfd 100644
---- a/mars.txt
-+++ b/mars.txt
+--- a/README.txt
++++ b/README.txt
 @@ -1,2 +1,3 @@
  Cold and dry, but everything is my favorite color
  The two moons may be a problem for Wolfman
@@ -1286,10 +1311,10 @@ repository (`git commit`):
 ## Choosing a Commit Message
 
 Which of the following commit messages would be most appropriate for the
-last commit made to `mars.txt`?
+last commit made to `README.txt`?
 
 1. "Changes"
-2. "Added line 'But the Mummy will appreciate the lack of humidity' to mars.txt"
+2. "Added line 'But the Mummy will appreciate the lack of humidity' to README.txt"
 3. "Discuss effects of Mars' climate on the Mummy"
 
 ::::::::::::::: solution
@@ -1351,7 +1376,7 @@ $ git commit -m myfile.txt "my recent changes"
 The staging area can hold changes from any number of files
 that you want to commit as a single snapshot.
 
-1. Add some text to `mars.txt` noting your decision
+1. Add some text to `README.txt` noting your decision
    to consider Venus as a base
 2. Create a new file `venus.txt` with your initial thoughts
    about Venus as a base for you and your friends
@@ -1362,14 +1387,14 @@ that you want to commit as a single snapshot.
 
 ## Solution
 
-The output below from `cat mars.txt` reflects only content added during
+The output below from `cat README.txt` reflects only content added during
 this exercise. Your output may vary.
 
-First we make our changes to the `mars.txt` and `venus.txt` files:
+First we make our changes to the `README.txt` and `venus.txt` files:
 
 ```bash
-$ nano mars.txt
-$ cat mars.txt
+$ nano README.txt
+$ cat README.txt
 ```
 
 ```output
@@ -1388,13 +1413,13 @@ Venus is a nice planet and I definitely should consider it as a base.
 Now you can add both files to the staging area. We can do that in one line:
 
 ```bash
-$ git add mars.txt venus.txt
+$ git add README.txt venus.txt
 ```
 
 Or with multiple commands:
 
 ```bash
-$ git add mars.txt
+$ git add README.txt
 $ git add venus.txt
 ```
 
@@ -1494,13 +1519,13 @@ Venus is a nice planet and I definitely should consider it as a base.
 Now you can add both files to the staging area. We can do that in one line:
 
 ```bash
-$ git add mars.txt venus.txt
+$ git add README.txt venus.txt
 ```
 
 Or with multiple commands:
 
 ```bash
-$ git add mars.txt
+$ git add README.txt
 $ git add venus.txt
 ```
 
