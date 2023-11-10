@@ -7,7 +7,7 @@
 
     <center>![image](./images/penguin-student.png){width="300"}</center>
 
-**This workshop is heavily derived from the [Software Carpentry Introduction to Version Control with Git](https://swcarpentry.github.io/git-novice/)**
+**This workshop is heavily derived from the [Software Carpentry Introduction to Version Control with Git](https://swcarpentry.github.io/git-novice/) and [Happy Git with R](https://happygitwithr.com)**
 
 We'll start by exploring how version control can be used
 to keep track of what one person did and when.
