@@ -53,9 +53,7 @@ metadata make up a [repository](../learners/reference.md#repository).
 Repositories can be kept in sync across different computers, facilitating
 collaboration among different people.
 
-::::::::::::::::::::::::::::::::::::::::: callout
-
-## The Long History of Version Control Systems
+!!! material-bell "The Long History of Version Control Systems"
 
 Automated version control systems are nothing new.
 Tools like [RCS](https://en.wikipedia.org/wiki/Revision_Control_System), [CVS](https://en.wikipedia.org/wiki/Concurrent_Versions_System), or [Subversion](https://en.wikipedia.org/wiki/Apache_Subversion) have been around since the early 1980s and are used by
@@ -67,8 +65,6 @@ are _distributed_, meaning that they do not need a centralized server to host th
 These modern systems also include powerful merging tools that make it possible for
 multiple authors to work on
 the same files concurrently.
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::: challenge
 
