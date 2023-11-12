@@ -1,6 +1,6 @@
 # Tracking Changes
 
-!!! checklist "Objectives"
+!!! graduation-cap "Objectives"
 
     - Go through the modify-add-commit cycle for one or more files.
     - Explain where information is stored at each stage of that cycle.
@@ -637,24 +637,24 @@ repository (`git commit`):
     to my local Git repository?
 
     1. ```bash
-    $ git commit -m "my recent changes"
-    ```
+        $ git commit -m "my recent changes"
+        ```
 
 
     2. ```bash
-    $ git init myfile.txt
-    $ git commit -m "my recent changes"
-    ```
+        $ git init myfile.txt
+        $ git commit -m "my recent changes"
+        ```
 
     3. ```bash
-    $ git add myfile.txt
-    $ git commit -m "my recent changes"
-    ```
+        $ git add myfile.txt
+        $ git commit -m "my recent changes"
+        ```
 
 
     4. ```bash
-    $ git commit -m myfile.txt "my recent changes"
-    ```
+        $ git commit -m myfile.txt "my recent changes"
+        ```
 
     ??? Solution
 
@@ -738,12 +738,12 @@ repository (`git commit`):
 
 !!! file-code "`bio` Repository"
 
-- Create a new Git repository on your computer called `bio`.
-- Write a three-line biography for yourself in a file called `me.txt`, commit your changes
-- Modify one line, add a fourth line
-- Display the differences between its updated state and its original state.
+      - Create a new Git repository on your computer called `bio`.
+      - Write a three-line biography for yourself in a file called `me.txt`, commit your changes
+      - Modify one line, add a fourth line
+      - Display the differences between its updated state and its original state.
 
-  ??? Solution
+    ??? Solution
 
         If needed, move out of the `planets` folder:
 
