@@ -275,34 +275,38 @@ If we break it down into pieces:
 
 After reviewing our change, it's time to commit it:
 
-```bash
-$ git commit -m "Add first step of workflow"
-```
+!!! terminal-2
 
-```output
-On branch main
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git checkout -- <file>..." to discard changes in working directory)
+    ```bash
+    $ git commit -m "Add first step of workflow"
+    ```
 
-	modified:   README.txt
+    ```output
+    On branch main
+    Changes not staged for commit:
+    (use "git add <file>..." to update what will be committed)
+    (use "git checkout -- <file>..." to discard changes in working directory)
 
-no changes added to commit (use "git add" and/or "git commit -a")
-```
+        modified:   README.txt
+
+    no changes added to commit (use "git add" and/or "git commit -a")
+    ```
 
 Whoops:
 Git won't commit because we didn't use `git add` first.
 Let's fix that:
 
-```bash
-$ git add README.txt
-$ git commit -m "Add first step of workflow"
-```
+!!! terminal-2
 
-```output
-[main 34961b1] Add first step of workflow
- 1 file changed, 2 insertion(+)
-```
+    ```bash
+    $ git add README.txt
+    $ git commit -m "Add first step of workflow"
+    ```
+
+    ```output
+    [main 34961b1] Add first step of workflow
+    1 file changed, 2 insertion(+)
+    ```
 
 Git insists that we add files to the set we want to commit
 before actually committing anything. This allows us to commit our
@@ -389,10 +393,12 @@ we've added one line to the end of the file
 Now let's put that change in the staging area
 and see what `git diff` reports:
 
-```bash
-$ git add README.txt
-$ git diff
-```
+!!! terminal-2
+
+    ```bash
+    $ git add README.txt
+    $ git diff
+    ```
 
 There is no output:
 as far as Git can tell,
@@ -513,10 +519,10 @@ and look at the history of what we've done so far:
     the last commit you can use:
 
     !!! terminal-2
+
         ```bash
         $ git log -1
         ```
-
 
         ```output
         commit 005937fbe2a98fb83f0ade869025dc2636b4dad5 (HEAD -> main)
@@ -530,6 +536,7 @@ and look at the history of what we've done so far:
     `--oneline` option:
 
     !!! terminal-2
+
         ```bash
         $ git log --oneline
         ```
@@ -568,7 +575,7 @@ and look at the history of what we've done so far:
     !!! terminal-2
 
         ```bash
-        $ mkdir qc
+        $ mkdir scripts
         $ git status
         $ git add qc
         $ git status
@@ -595,9 +602,9 @@ and look at the history of what we've done so far:
     !!! terminal-2
 
         ```bash
-        $ touch qc/fastqs.txt qc/bams.txt
+        $ touch scripts/qc.sh scripts/align.sh
         $ git status
-        $ git add qc
+        $ git add scripts
         $ git status
         ```
 
@@ -606,7 +613,7 @@ and look at the history of what we've done so far:
     !!! terminal-2
 
         ```bash
-        $ git commit -m "Add some files about qc"
+        $ git commit -m "Add some beginnings of scripts"
         ```
 
 To recap, when we want to add changes to our repository,
@@ -622,8 +629,8 @@ repository (`git commit`):
     last commit made to `README.txt`?
 
     1. "Changes"
-    2. "Added line 'But the Mummy will appreciate the lack of humidity' to README.txt"
-    3. "Discuss effects of Mars' climate on the Mummy"
+    2. "Added line '1. Perform QC' to README.txt"
+    3. "Add first step of workflow"
 
     ??? Solution
 
@@ -668,10 +675,8 @@ repository (`git commit`):
     The staging area can hold changes from any number of files
     that you want to commit as a single snapshot.
 
-    1. Add some text to `README.txt` noting your decision
-    to consider Venus as a base
-    2. Create a new file `venus.txt` with your initial thoughts
-    about Venus as a base for you and your friends
+    1. Add a step 3 to `README.txt`
+    2. Create a new file `metadata.txt` with a very brief description of the dataset
     3. Add changes from both files to the staging area,
     and commit those changes.
 
@@ -692,16 +697,16 @@ repository (`git commit`):
             ```
 
             ```output
-            Maybe I should start with a base on Venus.
+            3. variant call
             ```
 
             ```bash
-            $ nano venus.txt
-            $ cat venus.txt
+            $ nano metadata.txt
+            $ cat metadata.txt
             ```
 
             ```output
-            Venus is a nice planet and I definitely should consider it as a base.
+            Genome sequences of 3 E. coli samples.
             ```
 
         Now you can add both files to the staging area. We can do that in one line:
@@ -709,7 +714,7 @@ repository (`git commit`):
         !!! terminal-2
 
             ```bash
-            $ git add README.txt venus.txt
+            $ git add README.txt metadata.txt
             ```
 
         Or with multiple commands:
@@ -718,7 +723,7 @@ repository (`git commit`):
 
             ```bash
             $ git add README.txt
-            $ git add venus.txt
+            $ git add metadata.txt
             ```
 
         Now the files are ready to commit. You can check that using `git status`. If you are ready to commit use:
@@ -726,14 +731,14 @@ repository (`git commit`):
         !!! terminal-2
 
             ```bash
-            $ git commit -m "Write plans to start a base on Venus"
+            $ git commit -m "Include metadata"
             ```
 
             ```output
             [main cc127c2]
-            Write plans to start a base on Venus
+            Include metdata
             2 files changed, 2 insertions(+)
-            create mode 100644 venus.txt
+            create mode 100644 metadata.txt
             ```
 
 !!! file-code "`bio` Repository"
