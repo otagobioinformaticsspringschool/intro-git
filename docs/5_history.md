@@ -376,7 +376,7 @@ moving backward and forward in time becomes much easier.
 
 
 
-        ??? Solution
+    ??? Solution
 
         The answer is (5)-Both 2 and 4.
 
@@ -425,11 +425,11 @@ moving backward and forward in time becomes much easier.
 
         ??? Solution
 
-        The command `git log` lists project history with commit IDs.
+            The command `git log` lists project history with commit IDs.
 
-        The command `git show HEAD` shows changes made at the latest commit, and lists
-        the commit ID; however, Jennifer should double-check it is the correct commit, and no one
-        else has committed changes to the repository.
+            The command `git show HEAD` shows changes made at the latest commit, and lists
+            the commit ID; however, Jennifer should double-check it is the correct commit, and no one
+            else has committed changes to the repository.
 
 !!! file-code "Understanding Workflow and History"
 
