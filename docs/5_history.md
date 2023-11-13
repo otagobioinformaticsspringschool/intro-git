@@ -447,23 +447,23 @@ moving backward and forward in time becomes much easier.
         ```
 
     1. ```output
-        Venus is too hot to be suitable as a base
-        ```
+    Venus is too hot to be suitable as a base
+    ```
 
 
     2. ```output
-        Venus is beautiful and full of love
-        ```
+    Venus is beautiful and full of love
+    ```
 
     3. ```output
-        Venus is beautiful and full of love
-        Venus is too hot to be suitable as a base
-        ```
+    Venus is beautiful and full of love
+    Venus is too hot to be suitable as a base
+    ```
 
 
     4. ```output
-        Error because you have changed venus.txt without committing the changes
-        ```
+    Error because you have changed venus.txt without committing the changes
+    ```
 
 
 
