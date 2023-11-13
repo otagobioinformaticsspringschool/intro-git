@@ -251,7 +251,7 @@ of the file and the most recently saved version:
     index df0654a..315bf3a 100644
     --- a/README.txt
     +++ b/README.txt
-    @@ -1 +1,2 @@
+    @@ -1 +1,3 @@
     Project notes for the variant calling workflow
     +
     +1. Perform QC
@@ -380,7 +380,7 @@ we'll add another line to the file:
     index 315bf3a..b36abfd 100644
     --- a/README.txt
     +++ b/README.txt
-    @@ -1,2 +1,3 @@
+    @@ -1,3 +1,4 @@
      Project notes for the variant calling workflow
 
      1. Perform QC
@@ -577,11 +577,11 @@ and look at the history of what we've done so far:
         ```bash
         $ mkdir scripts
         $ git status
-        $ git add qc
+        $ git add scripts
         $ git status
         ```
 
-    Note, our newly created empty directory `qc` does not appear in
+    Note, our newly created empty directory `scripts` does not appear in
     the list of untracked files even if we explicitly add it (_via_ `git add`) to our
     repository. This is the reason why you will sometimes see `.gitkeep` files
     in otherwise empty directories. Unlike `.gitignore`, these files are not special
@@ -697,7 +697,11 @@ repository (`git commit`):
             ```
 
             ```output
-            3. variant call
+            Project notes for the variant calling workflow
+
+            1. Perform QC
+            2. Align reads
+            3. Variant call
             ```
 
             ```bash
