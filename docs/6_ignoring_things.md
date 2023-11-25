@@ -18,7 +18,7 @@ like backup files created by our editor
 or intermediate files created during data analysis?
 Let's create a few dummy files:
 
-!!! terminal ""
+!!! terminal "code"
 
     ```bash
     $ mkdir results
@@ -27,7 +27,7 @@ Let's create a few dummy files:
 
 and see what Git says:
 
-!!! terminal ""
+!!! terminal "code"
 
     ```bash
     $ git status
@@ -53,7 +53,7 @@ so let's tell Git to ignore them.
 
 We do this by creating a file in the root directory of our project called `.gitignore`:
 
-!!! terminal ""
+!!! terminal "code"
 
     ```bash
     $ nano .gitignore
@@ -73,7 +73,7 @@ Git would continue to track them.)
 Once we have created this file,
 the output of `git status` is much cleaner:
 
-!!! terminal ""
+!!! terminal "code"
 
     ```bash
     $ git status
@@ -95,7 +95,7 @@ but everyone we're sharing our repository with will probably want to ignore
 the same things that we're ignoring.
 Let's add and commit `.gitignore`:
 
-!!! terminal ""
+!!! terminal "code"
 
     ```bash
     $ git add .gitignore
@@ -110,7 +110,7 @@ Let's add and commit `.gitignore`:
 
 As a bonus, using `.gitignore` helps us avoid accidentally adding files to the repository that we don't want to track:
 
-!!! terminal ""
+!!! terminal "code"
 
     ```bash
     $ git add a.csv
@@ -127,7 +127,7 @@ we can use `git add -f` to force Git to add something. For example,
 `git add -f a.csv`.
 We can also always see the status of ignored files if we want:
 
-!!! terminal ""
+!!! terminal "code"
 
     ```bash
     $ git status --ignored
@@ -210,7 +210,7 @@ We can also always see the status of ignored files if we want:
     Given a directory structure that looks similar to the earlier Nested Files
     exercise, but with a slightly different directory structure:
 
-    !!! terminal ""
+    !!! terminal "code"
 
         ```bash
         results/data
@@ -243,7 +243,7 @@ We can also always see the status of ignored files if we want:
 
     Assuming you have an empty .gitignore file, and given a directory structure that looks like:
 
-    !!! terminal ""
+    !!! terminal "code"
 
         ```bash
         results/data/position/gps/a.csv
@@ -268,7 +268,7 @@ We can also always see the status of ignored files if we want:
     Let us assume you have many `.csv` files in different subdirectories of your repository.
     For example, you might have:
 
-    !!! terminal ""
+    !!! terminal "code"
 
         ```bash
         results/a.csv
@@ -292,7 +292,7 @@ We can also always see the status of ignored files if we want:
         This will ignore all the `.csv` files, regardless of their position in the directory tree.
         You can still include some specific exception with the exclamation point operator.
 
-::::::::::::::::::::::::::::::::::::::: challenge
+
 
 !!! file-code "The Order of Rules"
 
@@ -332,8 +332,8 @@ We can also always see the status of ignored files if we want:
 
     ??? Solution
 
-       1. append either `log_*` or `log*` as a new entry in your .gitignore
-       2. track `log_01` using `git add -f log_01`
+          1. append either `log_*` or `log*` as a new entry in your .gitignore
+          2. track `log_01` using `git add -f log_01`
 
 !!! info "Keypoints"
 
