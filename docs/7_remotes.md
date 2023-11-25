@@ -24,7 +24,7 @@ world. To this end we are going to create a _remote_ repository that will be lin
 Log in to [GitHub](https://github.com), then click on the icon in the top right corner to
 create a new repository called `planets`:
 
-![](fig/github-create-repo-01.png){alt='Creating a Repository on GitHub (Step 1)'}
+![](images/github-create-repo-01.png){alt='Creating a Repository on GitHub (Step 1)'}
 
 Name your repository "planets" and then click "Create Repository".
 
@@ -33,12 +33,12 @@ Note: Since this repository will be connected to a local repository, it needs to
 .gitignore" and "Add a license." See the "GitHub License and README files" exercise below for a full
 explanation of why the repository needs to be empty.
 
-![](fig/github-create-repo-02.png){alt='Creating a Repository on GitHub (Step 2)'}
+![](images/github-create-repo-02.png){alt='Creating a Repository on GitHub (Step 2)'}
 
 As soon as the repository is created, GitHub displays a page with a URL and some
 information on how to configure your local repository:
 
-![](fig/github-create-repo-03.png){alt='Creating a Repository on GitHub (Step 3)'}
+![](images/github-create-repo-03.png){alt='Creating a Repository on GitHub (Step 3)'}
 
 This effectively does the following on GitHub's servers:
 
@@ -52,11 +52,11 @@ If you remember back to the earlier [episode](4_tracking_changes.md) where we ad
 committed our earlier work on `README.txt`, we had a diagram of the local repository
 which looked like this:
 
-![](fig/git-staging-area.svg){alt='The Local Repository with Git Staging Area'}
+![](images/git-staging-area.svg){alt='The Local Repository with Git Staging Area'}
 
 Now that we have two repositories, we need a diagram like this:
 
-![](fig/git-freshly-made-github-repo.svg){alt='Freshly-Made GitHub Repository'}
+![](images/git-freshly-made-github-repo.svg){alt='Freshly-Made GitHub Repository'}
 
 Note that our local repository still contains our earlier work on `README.txt`, but the
 remote repository on GitHub appears empty as it doesn't contain any files yet.
@@ -68,7 +68,7 @@ GitHub repository a [remote](../learners/reference.md#remote) for the local repo
 The home page of the repository on GitHub includes the URL string we need to
 identify it:
 
-![](fig/github-find-repo-string.png){alt='Where to Find Repository URL on GitHub'}
+![](images/github-find-repo-string.png){alt='Where to Find Repository URL on GitHub'}
 
 Click on the 'SSH' link to change the [protocol](../learners/reference.md#protocol) from HTTPS to SSH.
 
@@ -78,7 +78,7 @@ Click on the 'SSH' link to change the [protocol](../learners/reference.md#protoc
     security protocol widely used by many applications. The steps below describe SSH at a
     minimum level for GitHub.
 
-![](fig/github-change-repo-string.png){alt='Changing the Repository URL on GitHub'}
+![](images/github-change-repo-string.png){alt='Changing the Repository URL on GitHub'}
 
 Copy that URL from the browser, go into the local `vc_project` repository, and run
 this command:
@@ -134,7 +134,7 @@ The first thing we are going to do is check if this has already been done on the
 
 We will run the list command to check what key pairs already exist on your computer.
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     ls -al ~/.ssh
@@ -144,7 +144,7 @@ Your output is going to look a little different depending on whether or not SSH 
 
 Dracula has not set up SSH on his computer, so his output is
 
-!!! terminal-2
+!!! terminal "code"
 
     ```output
     ls: cannot access '/c/Users/Vlad Dracula/.ssh': No such file or directory
@@ -157,7 +157,7 @@ Since they don't exist on Dracula's computer, he uses this command to create the
 
 To create an SSH key pair Vlad uses this command, where the `-t` option specifies which type of algorithm to use and `-C` attaches a comment to the key (here, Vlad's email):
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ ssh-keygen -t ed25519 -C "vlad@tran.sylvan.ia"
@@ -166,25 +166,25 @@ To create an SSH key pair Vlad uses this command, where the `-t` option specifie
 If you are using a legacy system that doesn't support the Ed25519 algorithm, use:
 `$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"`
 
-!!! terminal-2
+!!! terminal "code"
 
     ```output
     Generating public/private ed25519 key pair.
-    Enter file in which to save the key (/c/Users/Vlad Dracula/.ssh/id_ed25519):
+    Enter file in which to save the key (/home/<username>/.ssh/id_ed25519):
     ```
 
 We want to use the default file, so just press <kbd>Enter</kbd>.
 
-!!! terminal-2
+!!! terminal "code"
 
     ```output
-    Created directory '/c/Users/Vlad Dracula/.ssh'.
+    Created directory '/home/<username>/.ssh'.
     Enter passphrase (empty for no passphrase):
     ```
 
 Now, it is prompting Dracula for a passphrase. Since he is using his lab's laptop that other people sometimes have access to, he wants to create a passphrase. Be sure to use something memorable or save your passphrase somewhere, as there is no "reset my password" option.
 
-!!! terminal-2
+!!! terminal "code"
 
     ```output
     Enter same passphrase again:
@@ -192,7 +192,7 @@ Now, it is prompting Dracula for a passphrase. Since he is using his lab's lapto
 
 After entering the same passphrase a second time, we receive the confirmation
 
-!!! terminal-2
+!!! terminal "code"
 
     ```output
     Your identification has been saved in /c/Users/Vlad Dracula/.ssh/id_ed25519
@@ -218,7 +218,7 @@ is a shorter version of a public key.
 
 Now that we have generated the SSH keys, we will find the SSH files when we check.
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     ls -al ~/.ssh
@@ -235,7 +235,7 @@ Now that we have generated the SSH keys, we will find the SSH files when we chec
 
 Now we have a SSH key pair and we can run this command to check if GitHub can read our authentication.
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     ssh -T git@github.com
@@ -255,7 +255,7 @@ Right, we forgot that we need to give GitHub our public key!
 
 First, we need to copy the public key. Be sure to include the `.pub` at the end, otherwise you're looking at the private key.
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     cat ~/.ssh/id_ed25519.pub
@@ -272,7 +272,7 @@ files are located), paste your SSH key into the field, and click the "Add SSH ke
 
 Now that we've set that up, let's check our authentication again from the command line.
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ ssh -T git@github.com
@@ -289,7 +289,7 @@ Good! This output confirms that the SSH key works as intended. We are now ready 
 Now that authentication is setup, we can return to the remote. This command will push the changes from
 our local repository to the repository on GitHub:
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ git push origin main
@@ -298,7 +298,7 @@ our local repository to the repository on GitHub:
 Since Dracula set up a passphrase, it will prompt him for it. If you completed advanced settings for your authentication, it
 will not prompt for a passphrase.
 
-!!! terminal-2
+!!! terminal "code"
 
     ```output
     Enumerating objects: 16, done.
@@ -318,7 +318,8 @@ will not prompt for a passphrase.
     last command failed with "Could not resolve hostname" as the error message. To
     solve this issue, you need to tell Git about the proxy:
 
-    !!! terminal-2
+    !!! terminal "code"
+
         ```bash
         $ git config --global http.proxy http://user:password@proxy.url
         $ git config --global https.proxy https://user:password@proxy.url
@@ -327,7 +328,8 @@ will not prompt for a passphrase.
     When you connect to another network that doesn't use a proxy, you will need to
     tell Git to disable the proxy using:
 
-    !!! terminal-2
+    !!! terminal "code"
+
         ```bash
         $ git config --global --unset http.proxy
         $ git config --global --unset https.proxy
@@ -341,7 +343,7 @@ will not prompt for a passphrase.
     username and password at the terminal instead of using a password manager,
     type:
 
-    !!! terminal-2
+    !!! terminal "code"
 
         ```bash
         $ unset SSH_ASKPASS
@@ -358,7 +360,7 @@ will not prompt for a passphrase.
 
 Our local and remote repositories are now in this state:
 
-![](fig/github-repo-after-first-push.svg){alt='GitHub Repository After First Push'}
+![](images/github-repo-after-first-push.svg){alt='GitHub Repository After First Push'}
 
 !!! material-bell "The '-u' Flag"
 
@@ -370,7 +372,7 @@ Our local and remote repositories are now in this state:
 
 We can pull changes from the remote repository to the local one as well:
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ git pull origin main
@@ -386,7 +388,7 @@ Pulling has no effect in this case because the two repositories are already
 synchronized. If someone else had pushed some changes to the repository on
 GitHub, though, this command would download them to our local repository.
 
-::::::::::::::::::::::::::::::::::::::: challenge
+
 
 !!! file-code "GitHub GUI"
 
@@ -465,7 +467,7 @@ GitHub, though, this command would download them to our local repository.
     repository to your local repository, Git detects that they have histories that do not share a
     common origin and refuses to merge.
 
-    !!! terminal-2
+    !!! terminal "code"
 
         ```bash
         $ git pull origin main
@@ -487,7 +489,7 @@ GitHub, though, this command would download them to our local repository.
     Be careful when you use this option and carefully examine the contents of local and remote
     repositories before merging.
 
-    !!! terminal-2
+    !!! terminal "code"
 
         ```bash
         $ git pull --allow-unrelated-histories origin main
@@ -502,11 +504,11 @@ GitHub, though, this command would download them to our local repository.
         create mode 100644 README.md
         ```
 
-:::::::::::::::::::::::::::::::::::::::: keypoints
+!!! info "Keypoints"
 
-- A local Git repository can be connected to one or more remote repositories.
-- Use the SSH protocol to connect to remote repositories.
-- `git push` copies changes from a local repository to a remote repository.
-- `git pull` copies changes from a remote repository to a local repository.
+    - A local Git repository can be connected to one or more remote repositories.
+    - Use the SSH protocol to connect to remote repositories.
+    - `git push` copies changes from a local repository to a remote repository.
+    - `git pull` copies changes from a remote repository to a local repository.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+
