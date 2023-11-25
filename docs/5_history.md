@@ -23,7 +23,7 @@ We've been adding one line at a time to `README.txt`, so it's easy to track our
 progress by looking, so let's do that using our `HEAD`s. Before we start,
 let's make a change to `README.txt`, adding yet another line.
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ nano README.txt
@@ -41,7 +41,7 @@ let's make a change to `README.txt`, adding yet another line.
 
 Now, let's see what we get.
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ git diff HEAD README.txt
@@ -67,7 +67,7 @@ that by adding `~1`
 (where "~" is "tilde", pronounced [**til**\-d*uh*])
 to refer to the commit one before `HEAD`.
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ git diff HEAD~1 README.txt
@@ -76,7 +76,7 @@ to refer to the commit one before `HEAD`.
 If we want to see the differences between older commits we can use `git diff`
 again, but with the notation `HEAD~1`, `HEAD~2`, and so on, to refer to them:
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ git diff HEAD~4 README.txt
@@ -100,7 +100,7 @@ We could also use `git show` which shows us what changes we made at an older com
 well as the commit message, rather than the _differences_ between a commit and our
 working directory that we see by using `git diff`.
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ git show HEAD~4 README.txt
@@ -142,7 +142,7 @@ Our first commit was given the ID
 `f22b25e3233b4645dabd0d81e651fe074bd8e73b`,
 so let's try this:
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ git diff f22b25e3233b4645dabd0d81e651fe074bd8e73b README.txt
@@ -166,7 +166,7 @@ That's the right answer,
 but typing out random 40-character strings is annoying,
 so Git lets us use just the first few characters (typically seven for normal size projects):
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ git diff f22b25e README.txt
@@ -195,7 +195,7 @@ Let's suppose we change our mind about the last update to
 `git status` now tells us that the file has been changed,
 but those changes haven't been staged:
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ git status
@@ -215,7 +215,7 @@ but those changes haven't been staged:
 We can put things back the way they were
 by using `git checkout`:
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ git checkout HEAD README.txt
@@ -238,7 +238,7 @@ which is the last saved commit.
 If we want to go back even further,
 we can use a commit identifier instead:
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ git checkout f22b25e README.txt
@@ -269,7 +269,7 @@ Notice that the changes are currently in the staging area.
 Again, we can put things back the way they were
 by using `git checkout`:
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ git checkout HEAD README.txt
@@ -279,7 +279,7 @@ by using `git checkout`:
 
     Above we used
 
-    !!! terminal-2
+    !!! terminal "code"
 
         ```bash
         $ git checkout f22b25e README.txt
@@ -290,7 +290,7 @@ by using `git checkout`:
     your intentions if you are not accurate with the typing. For example,
     if you forget `README.txt` in the previous command.
 
-    !!! terminal-2
+    !!! terminal "code"
         ```bash
         $ git checkout f22b25e
         ```
@@ -435,35 +435,40 @@ moving backward and forward in time becomes much easier.
 
     What is the output of the last command in
 
-        !!! terminal-2
-        ```bash
-        $ cd planets
-        $ echo "Venus is beautiful and full of love" > venus.txt
-        $ git add venus.txt
-        $ echo "Venus is too hot to be suitable as a base" >> venus.txt
-        $ git commit -m "Comment on Venus as an unsuitable base"
-        $ git checkout HEAD venus.txt
-        $ cat venus.txt #this will print the contents of venus.txt to the screen
+        !!! terminal "code"
+
+            ```bash
+            $ cd planets
+            $ echo "Venus is beautiful and full of love" > venus.txt
+            $ git add venus.txt
+            $ echo "Venus is too hot to be suitable as a base" >> venus.txt
+            $ git commit -m "Comment on Venus as an unsuitable base"
+            $ git checkout HEAD venus.txt
+            $ cat venus.txt #this will print the contents of venus.txt to the screen
+            ```
+
+    1.  
+        ```output
+        Venus is too hot to be suitable as a base
         ```
 
-    1. ```output
-    Venus is too hot to be suitable as a base
-    ```
+
+    2.  
+        ```output
+        Venus is beautiful and full of love
+        ```
+
+    3.  
+        ```output
+        Venus is beautiful and full of love
+        Venus is too hot to be suitable as a base
+        ```
 
 
-    2. ```output
-    Venus is beautiful and full of love
-    ```
-
-    3. ```output
-    Venus is beautiful and full of love
-    Venus is too hot to be suitable as a base
-    ```
-
-
-    4. ```output
-    Error because you have changed venus.txt without committing the changes
-    ```
+    4. 
+        ```output
+        Error because you have changed venus.txt without committing the changes
+        ```
 
 
 
@@ -530,7 +535,7 @@ moving backward and forward in time becomes much easier.
         Git helpfully tells us that we need to use `git reset` first
         to unstage the file:
 
-        !!! terminal-2
+        !!! terminal "code"
             ```bash
             $ git reset HEAD README.txt
             ```
@@ -542,7 +547,7 @@ moving backward and forward in time becomes much easier.
 
         Now, `git status` gives us:
 
-        !!! terminal-2
+        !!! terminal "code"
 
             ```bash
             $ git status
@@ -562,7 +567,7 @@ moving backward and forward in time becomes much easier.
         This means we can now use `git checkout` to restore the file
         to the previous commit:
 
-        !!! terminal-2
+        !!! terminal "code"
             ```bash
             $ git checkout -- README.txt
             $ git status
@@ -586,7 +591,7 @@ moving backward and forward in time becomes much easier.
     Recall that the `git diff` command allows us to explore one specific file,
     e.g., `git diff README.txt`. We can apply a similar idea here.
 
-    !!! terminal-2
+    !!! terminal "code"
 
         ```bash
         $ git log README.txt
@@ -599,7 +604,7 @@ moving backward and forward in time becomes much easier.
     for you.
     Is it possible to combine both? Let's try the following:
 
-    !!! terminal-2
+    !!! terminal "code"
         ```bash
         $ git log --patch README.txt
         ```
@@ -609,14 +614,14 @@ moving backward and forward in time becomes much easier.
 
     Question: What does the following command do?
 
-    !!! terminal-2
+    !!! terminal "code"
         ```bash
         $ git log --patch HEAD~9 *.txt
         ```
 
-:::::::::::::::::::::::::::::::::::::::: keypoints
+!!! info "Keypoints"
 
-- `git diff` displays differences between commits.
-- `git checkout` recovers old versions of files.
+    - `git diff` displays differences between commits.
+    - `git checkout` recovers old versions of files.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+

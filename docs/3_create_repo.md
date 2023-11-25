@@ -12,7 +12,7 @@ We're going to use the Genomic Variant Calling workshop as the basis for our rep
 
 First, let's navigate into the directory for the lesson `~/obss_2023/intro-git` and create a new directory `vc_project` there for our repository to live in:
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ cd ~/obss_2023/intro-git
@@ -23,7 +23,7 @@ First, let's navigate into the directory for the lesson `~/obss_2023/intro-git` 
 Then we tell Git to make `vc_project` a repository
 \-- a place where Git can store versions of our files:
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ git init
@@ -39,7 +39,7 @@ repository are completely separate processes.
 If we use `ls` to show the directory's contents,
 it appears that nothing has changed:
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ ls
@@ -48,13 +48,13 @@ it appears that nothing has changed:
 But if we add the `-a` flag to show everything,
 we can see that Git has created a hidden directory within `vc_project` called `.git`:
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ ls -a
     ```
 
-!!! terminal-2
+!!! terminal "code"
 
     ```output
     .	..	.git
@@ -70,13 +70,13 @@ This might be the default branch depending on your settings and version
 of git.
 See the [setup episode](2_summary_setup.md#default-git-branch-naming) for more information on this change.
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ git checkout -b main
     ```
 
-!!! terminal-2
+!!! terminal "code"
 
     ```output
     Switched to a new branch 'main'
@@ -85,13 +85,13 @@ See the [setup episode](2_summary_setup.md#default-git-branch-naming) for more i
 We can check that everything is set up correctly
 by asking Git to tell us the status of our project:
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ git status
     ```
 
-!!! terminal-2
+!!! terminal "code"
 
     ```output
     On branch main
@@ -111,7 +111,7 @@ wording of the output might be slightly different.
     Lets creates an `ecoli` project inside our `vc_project`
     project with the following sequence of commands:
 
-    !!! terminal-2
+    !!! terminal "code"
 
         ```bash
         $ cd ~/obss_2023/intro-git   # return to Desktop directory
@@ -142,13 +142,13 @@ wording of the output might be slightly different.
         like the following, you are good to go to create a new repository as shown
         above:
 
-        !!! terminal-2
+        !!! terminal "code"
 
             ```bash
             $ git status
             ```
 
-        !!! terminal-2
+        !!! terminal "code"
 
             ```output
             fatal: Not a git repository (or any of the parent directories): .git
@@ -168,7 +168,7 @@ wording of the output might be slightly different.
         yet how to tell Git to track a particular file; we will learn this in the next episode. Files
         that are not tracked by Git can easily be removed like any other "ordinary" files with
 
-        !!! terminal-2
+        !!! terminal "code"
 
             ```bash
             $ rm filename
@@ -186,7 +186,7 @@ wording of the output might be slightly different.
         To recover from this little mistake, we can just remove the `.git`
         folder in the ecoli subdirectory by running the following command from inside the `vc_project` directory:
 
-        !!! terminal-2
+        !!! terminal "code"
 
             ```bash
             $ rm -rf ecoli/.git
@@ -201,6 +201,4 @@ wording of the output might be slightly different.
     - `git init` initializes a repository.
     - Git stores all of its repository data in the `.git` directory.
 
-```
 
-```

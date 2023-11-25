@@ -1,6 +1,6 @@
 # Remotes in Github
 
-!!! graduation-cap "Objectives"
+!!! clipboard-list "Objectives"
 
     - Explain what remote repositories are and why they are useful.
     - Push to or pull from a remote repository.

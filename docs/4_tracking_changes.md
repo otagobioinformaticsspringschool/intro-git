@@ -1,6 +1,6 @@
 # Tracking Changes
 
-!!! graduation-cap "Objectives"
+!!! clipboard-list "Objectives"
 
     - Go through the modify-add-commit cycle for one or more files.
     - Explain where information is stored at each stage of that cycle.
@@ -9,7 +9,7 @@
 First let's make sure we're still in the right directory.
 You should be in the `vc_project` directory.
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ cd ~/obss_2023/intro-git/vc_project
@@ -21,7 +21,7 @@ We'll use `nano` to edit the file;
 you can use whatever editor you like.
 In particular, this does not have to be the `core.editor` you set globally earlier. But remember, the bash command to create or edit a new file will depend on the editor you choose (it might not be `nano`). For a refresher on text editors, check out ["Which Editor?"](https://swcarpentry.github.io/shell-novice/03-create.html#which-editor) in [The Unix Shell](https://swcarpentry.github.io/shell-novice/) lesson.
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ nano README.txt
@@ -29,7 +29,7 @@ In particular, this does not have to be the `core.editor` you set globally earli
 
 Type the text below into the `README.txt` file:
 
-!!! terminal-2
+!!! terminal "code"
 
     ```output
     Project notes for the variant calling workflow
@@ -37,7 +37,7 @@ Type the text below into the `README.txt` file:
 
 Let's first verify that the file was properly created by running the list command (`ls`):
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ ls
@@ -49,7 +49,7 @@ Let's first verify that the file was properly created by running the list comman
 
 `README.txt` contains a single line, which we can see by running:
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ cat README.txt
@@ -62,7 +62,7 @@ Let's first verify that the file was properly created by running the list comman
 If we check the status of our project again,
 Git tells us that it's noticed the new file:
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ git status
@@ -85,7 +85,7 @@ The "untracked files" message means that there's a file in the directory
 that Git isn't keeping track of.
 We can tell Git to track a file using `git add`:
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ git add README.txt
@@ -93,7 +93,7 @@ We can tell Git to track a file using `git add`:
 
 and then check that the right thing happened:
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ git status
@@ -116,7 +116,7 @@ but it hasn't recorded these changes as a commit yet.
 To get it to do that,
 we need to run one more command:
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ git commit -m "Start notes project"
@@ -146,7 +146,7 @@ If you want to go into more detail, add a blank line between the summary line an
 
 If we run `git status` now:
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ git status
@@ -161,7 +161,7 @@ it tells us everything is up to date.
 If we want to know what we've done recently,
 we can ask Git to show us the project's history using `git log`:
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ git log
@@ -196,7 +196,7 @@ Now suppose Dracula adds more information to the file.
 (Again, we'll edit with `nano` and then `cat` the file to show its contents;
 you may use a different editor, and don't need to `cat`.)
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ nano README.txt
@@ -212,7 +212,7 @@ you may use a different editor, and don't need to `cat`.)
 When we run `git status` now,
 it tells us that a file it already knows about has been modified:
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ git status
@@ -240,7 +240,7 @@ our changes before saving them. We do this using `git diff`.
 This shows us the differences between the current state
 of the file and the most recently saved version:
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ git diff
@@ -275,7 +275,7 @@ If we break it down into pieces:
 
 After reviewing our change, it's time to commit it:
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ git commit -m "Add first step of workflow"
@@ -296,7 +296,7 @@ Whoops:
 Git won't commit because we didn't use `git add` first.
 Let's fix that:
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ git add README.txt
@@ -352,14 +352,14 @@ and into long-term storage.
 First,
 we'll add another line to the file:
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ nano READEME.txt
     $ cat README.txt
     ```
 
-!!! terminal-2
+!!! terminal "code"
 
     ```output
     Project notes for the variant calling workflow
@@ -368,12 +368,13 @@ we'll add another line to the file:
     2. Align reads
     ```
 
-!!! terminal-2
-`bash
-    $ git diff
-    `
+!!! terminal "code"
 
-!!! terminal-2
+    ```bash
+    $ git diff
+    ```
+
+!!! terminal "code"
 
     ```output
     diff --git a/README.txt b/README.txt
@@ -393,7 +394,7 @@ we've added one line to the end of the file
 Now let's put that change in the staging area
 and see what `git diff` reports:
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ git add README.txt
@@ -407,13 +408,13 @@ and what's currently in the directory.
 However,
 if we do this:
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ git diff --staged
     ```
 
-!!! terminal-2
+!!! terminal "code"
 
     ```output
     diff --git a/README.txt b/README.txt
@@ -432,13 +433,11 @@ the last committed change
 and what's in the staging area.
 Let's save our changes:
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ git commit -m "add alignment step"
     ```
-
-!!! terminal-2
 
     ```output
     [main 005937f] add alignment step
@@ -447,13 +446,13 @@ Let's save our changes:
 
 check our status:
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ git status
     ```
 
-!!! terminal-2
+
 
     ```output
     On branch main
@@ -468,7 +467,6 @@ and look at the history of what we've done so far:
     $ git log
     ```
 
-!!! terminal-2
 
     ```output
     commit 005937fbe2a98fb83f0ade869025dc2636b4dad5 (HEAD -> main)
@@ -518,7 +516,7 @@ and look at the history of what we've done so far:
     commits that you want to view. For example, if you only want information from
     the last commit you can use:
 
-    !!! terminal-2
+    !!! terminal "code"
 
         ```bash
         $ git log -1
@@ -535,7 +533,7 @@ and look at the history of what we've done so far:
     You can also reduce the quantity of information using the
     `--oneline` option:
 
-    !!! terminal-2
+    !!! terminal "code"
 
         ```bash
         $ git log --oneline
@@ -553,7 +551,7 @@ and look at the history of what we've done so far:
     current `HEAD`, the current branch `main`, or
     [other Git references][git-references]:
 
-    !!! terminal-2
+    !!! terminal "code"
 
         ```bash
         $ git log --oneline --graph
@@ -572,7 +570,7 @@ and look at the history of what we've done so far:
     1. Git does not track directories on their own, only files within them.
     Try it for yourself:
 
-    !!! terminal-2
+    !!! terminal "code"
 
         ```bash
         $ mkdir scripts
@@ -591,7 +589,7 @@ and look at the history of what we've done so far:
     2. If you create a directory in your Git repository and populate it with files,
     you can add all files in the directory at once by:
 
-    !!! terminal-2
+    !!! terminal "code"
 
         ```bash
         git add <directory-with-files>
@@ -599,7 +597,7 @@ and look at the history of what we've done so far:
 
     Try it for yourself:
 
-    !!! terminal-2
+    !!! terminal "code"
 
         ```bash
         $ touch scripts/qc.sh scripts/align.sh
@@ -610,7 +608,7 @@ and look at the history of what we've done so far:
 
     Before moving on, we will commit these changes.
 
-    !!! terminal-2
+    !!! terminal "code"
 
         ```bash
         $ git commit -m "Add some beginnings of scripts"
@@ -643,23 +641,23 @@ repository (`git commit`):
     Which command(s) below would save the changes of `myfile.txt`
     to my local Git repository?
 
-    1. ```bash
+    1.  ```bash
         $ git commit -m "my recent changes"
         ```
 
 
-    2. ```bash
+    2.  ```bash
         $ git init myfile.txt
         $ git commit -m "my recent changes"
         ```
 
-    3. ```bash
+    3.  ```bash
         $ git add myfile.txt
         $ git commit -m "my recent changes"
         ```
 
 
-    4. ```bash
+    4.  ```bash
         $ git commit -m myfile.txt "my recent changes"
         ```
 
@@ -689,7 +687,7 @@ repository (`git commit`):
 
         First we make our changes to the `README.txt` and `venus.txt` files:
 
-        !!! terminal-2
+        !!! terminal "code"
 
             ```bash
             $ nano README.txt
@@ -715,7 +713,7 @@ repository (`git commit`):
 
         Now you can add both files to the staging area. We can do that in one line:
 
-        !!! terminal-2
+        !!! terminal "code"
 
             ```bash
             $ git add README.txt metadata.txt
@@ -723,7 +721,7 @@ repository (`git commit`):
 
         Or with multiple commands:
 
-        !!! terminal-2
+        !!! terminal "code"
 
             ```bash
             $ git add README.txt
@@ -732,7 +730,7 @@ repository (`git commit`):
 
         Now the files are ready to commit. You can check that using `git status`. If you are ready to commit use:
 
-        !!! terminal-2
+        !!! terminal "code"
 
             ```bash
             $ git commit -m "Include metadata"
@@ -792,12 +790,12 @@ repository (`git commit`):
 [commit-messages]: https://chris.beams.io/posts/git-commit/
 [git-references]: https://git-scm.com/book/en/v2/Git-Internals-Git-References
 
-:::::::::::::::::::::::::::::::::::::::: keypoints
+!!! info Keypoints"
 
-- `git status` shows the status of a repository.
-- Files can be stored in a project's working directory (which users see), the staging area (where the next commit is being built up) and the local repository (where commits are permanently recorded).
-- `git add` puts files in the staging area.
-- `git commit` saves the staged content as a new commit in the local repository.
-- Write a commit message that accurately describes your changes.
+      - `git status` shows the status of a repository.
+      - Files can be stored in a project's working directory (which users see), the staging area (where the next commit is being built up) and the local repository (where commits are permanently recorded).
+      - `git add` puts files in the staging area.
+      - `git commit` saves the staged content as a new commit in the local repository.
+      - Write a commit message that accurately describes your changes.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+
