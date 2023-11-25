@@ -344,7 +344,7 @@ but not yet committed.
     or you might find yourself searching for "git undo commit" more
     than you would like!
 
-![](fig/git-staging-area.svg){alt='The Git Staging Area'}
+![](images/git-staging-area.svg){alt='The Git Staging Area'}
 
 Let's watch as our changes to a file move from our editor
 to the staging area
@@ -619,7 +619,7 @@ we first need to add the changed files to the staging area
 (`git add`) and then commit the staged changes to the
 repository (`git commit`):
 
-![](fig/git-committing.svg){alt='The Git Commit Workflow'}
+![](images/git-committing.svg){alt='The Git Commit Workflow'}
 
 !!! file-code "Choosing a Commit Message"
 
