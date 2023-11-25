@@ -462,47 +462,47 @@ GitHub, though, this command would download them to our local repository.
 
     ??? Solution
 
-    In this case, we'd see a merge conflict due to unrelated histories. When GitHub creates a
-    README.md file, it performs a commit in the remote repository. When you try to pull the remote
-    repository to your local repository, Git detects that they have histories that do not share a
-    common origin and refuses to merge.
+        In this case, we'd see a merge conflict due to unrelated histories. When GitHub creates a
+        README.md file, it performs a commit in the remote repository. When you try to pull the remote
+        repository to your local repository, Git detects that they have histories that do not share a
+        common origin and refuses to merge.
 
-    !!! terminal "code"
+        !!! terminal "code"
 
-        ```bash
-        $ git pull origin main
-        ```
+            ```bash
+            $ git pull origin main
+            ```
 
-        ```output
-        warning: no common commits
-        remote: Enumerating objects: 3, done.
-        remote: Counting objects: 100% (3/3), done.
-        remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
-        Unpacking objects: 100% (3/3), done.
-        From https://github.com/vlad/vc_project
-        * branch            main     -> FETCH_HEAD
-        * [new branch]      main     -> origin/main
-        fatal: refusing to merge unrelated histories
-        ```
+            ```output
+            warning: no common commits
+            remote: Enumerating objects: 3, done.
+            remote: Counting objects: 100% (3/3), done.
+            remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+            Unpacking objects: 100% (3/3), done.
+            From https://github.com/vlad/vc_project
+            * branch            main     -> FETCH_HEAD
+            * [new branch]      main     -> origin/main
+            fatal: refusing to merge unrelated histories
+            ```
 
-    You can force git to merge the two repositories with the option `--allow-unrelated-histories`.
-    Be careful when you use this option and carefully examine the contents of local and remote
-    repositories before merging.
+        You can force git to merge the two repositories with the option `--allow-unrelated-histories`.
+        Be careful when you use this option and carefully examine the contents of local and remote
+        repositories before merging.
 
-    !!! terminal "code"
+        !!! terminal "code"
 
-        ```bash
-        $ git pull --allow-unrelated-histories origin main
-        ```
+            ```bash
+            $ git pull --allow-unrelated-histories origin main
+            ```
 
-        ```output
-        From https://github.com/vlad/vc_project
-        * branch            main     -> FETCH_HEAD
-        Merge made by the 'recursive' strategy.
-        README.md | 1 +
-        1 file changed, 1 insertion(+)
-        create mode 100644 README.md
-        ```
+            ```output
+            From https://github.com/vlad/vc_project
+            * branch            main     -> FETCH_HEAD
+            Merge made by the 'recursive' strategy.
+            README.md | 1 +
+            1 file changed, 1 insertion(+)
+            create mode 100644 README.md
+            ```
 
 !!! info "Keypoints"
 
