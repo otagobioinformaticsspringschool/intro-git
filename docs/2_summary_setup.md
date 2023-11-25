@@ -26,7 +26,7 @@ On a command line, Git commands are written as `git verb options`,
 where `verb` is what we actually want to do and `options` is additional optional information which may be needed for the `verb`. So here are the commands to
 set up your computer - replacing the values in the <> with your information:
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ git config --global user.name "<Firstname> <Lastname>"
@@ -64,7 +64,7 @@ For this lesson, we will be interacting with [GitHub](https://github.com/) and s
 
     On macOS and Linux:
 
-    !!! terminal-2
+    !!! terminal "code"
 
         ```bash
         $ git config --global core.autocrlf input
@@ -72,7 +72,7 @@ For this lesson, we will be interacting with [GitHub](https://github.com/) and s
 
     And on Windows:
 
-    !!! terminal-2
+    !!! terminal "code"
 
         ```bash
         $ git config --global core.autocrlf true
@@ -110,7 +110,7 @@ Git (2.28+) allows configuration of the name of the branch created when you
 initialize any new repository. We will use this feature to set it to `main` so
 it matches the cloud service we will eventually use.
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ git config --global init.defaultBranch main
@@ -140,7 +140,7 @@ to use the settings for every project, in your user account, on this computer.
 
 Let's review those settings and test our `core.editor` right away:
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ git config --global --edit
@@ -149,7 +149,7 @@ Let's review those settings and test our `core.editor` right away:
 Let's close the file without making any additional changes. Remember, since typos in the config file will cause
 issues, it's safer to view the configuration with:
 
-!!! terminal-2
+!!! terminal "code"
 
     ```bash
     $ git config --list
@@ -165,7 +165,7 @@ This can be done as many times as you want.
     [proxy](https://en.wikipedia.org/wiki/Proxy_server). If this is the case, you
     may also need to tell Git about the proxy:
 
-    !!! terminal-2
+    !!! terminal "code"
 
         ```bash
         $ git config --global http.proxy proxy-url
@@ -174,7 +174,7 @@ This can be done as many times as you want.
 
     To disable the proxy, use
 
-    !!! terminal-2
+    !!! terminal "code"
 
         ```bash
         $ git config --global --unset http.proxy
@@ -187,7 +187,7 @@ This can be done as many times as you want.
     relevant list of options typing `git <command> -h` or access the corresponding Git manual by typing
     `git <command> --help`, e.g.:
 
-    !!! terminal-2
+    !!! terminal "code"
 
         ```bash
         $ git config -h
@@ -198,7 +198,7 @@ This can be done as many times as you want.
 
     More generally, you can get the list of available `git` commands and further resources of the Git manual typing:
 
-    !!! terminal-2
+    !!! terminal "code"
 
         ```bash
         $ git help
@@ -208,4 +208,4 @@ This can be done as many times as you want.
 
 !!! clipboard-list
 
-- Use `git config` with the `--global` option to configure a user name, email address, editor, and other preferences once per machine.
+    - Use `git config` with the `--global` option to configure a user name, email address, editor, and other preferences once per machine.
