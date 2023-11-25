@@ -322,12 +322,12 @@ the commit in which we made the change we're trying to discard.
 In the example below, we want to retrieve the state from before the most
 recent commit (`HEAD~1`), which is commit `f22b25e`:
 
-![](fig/git-checkout.svg){alt='Git Checkout'}
+![](images/git-checkout.svg){alt='Git Checkout'}
 
 So, to put it all together,
 here's how Git works in cartoon form:
 
-![https://figshare.com/articles/How_Git_works_a_cartoon/1328266](fig/git_staging.svg)
+![https://figshare.com/articles/How_Git_works_a_cartoon/1328266](images/git_staging.svg)
 
 !!! material-bell "Simplifying the Common Case"
 
@@ -435,17 +435,17 @@ moving backward and forward in time becomes much easier.
 
     What is the output of the last command in
 
-        !!! terminal "code"
+    !!! terminal "code"
 
-            ```bash
-            $ cd planets
-            $ echo "Venus is beautiful and full of love" > venus.txt
-            $ git add venus.txt
-            $ echo "Venus is too hot to be suitable as a base" >> venus.txt
-            $ git commit -m "Comment on Venus as an unsuitable base"
-            $ git checkout HEAD venus.txt
-            $ cat venus.txt #this will print the contents of venus.txt to the screen
-            ```
+        ```bash
+        $ cd planets
+        $ echo "Venus is beautiful and full of love" > venus.txt
+        $ git add venus.txt
+        $ echo "Venus is too hot to be suitable as a base" >> venus.txt
+        $ git commit -m "Comment on Venus as an unsuitable base"
+        $ git checkout HEAD venus.txt
+        $ cat venus.txt #this will print the contents of venus.txt to the screen
+        ```
 
     1.  
         ```output
@@ -568,6 +568,7 @@ moving backward and forward in time becomes much easier.
         to the previous commit:
 
         !!! terminal "code"
+
             ```bash
             $ git checkout -- README.txt
             $ git status
@@ -605,6 +606,7 @@ moving backward and forward in time becomes much easier.
     Is it possible to combine both? Let's try the following:
 
     !!! terminal "code"
+
         ```bash
         $ git log --patch README.txt
         ```
@@ -615,6 +617,7 @@ moving backward and forward in time becomes much easier.
     Question: What does the following command do?
 
     !!! terminal "code"
+
         ```bash
         $ git log --patch HEAD~9 *.txt
         ```
