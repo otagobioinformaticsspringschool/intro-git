@@ -1,0 +1,1105 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Genomics Aotearoa & NeSI">
+      
+      
+        <link rel="canonical" href="https://otagobioinformaticsspringschool.github.io/intro-git/5_history/">
+      
+      
+        <link rel="prev" href="../4_tracking_changes/">
+      
+      
+        <link rel="next" href="../6_ignoring_things/">
+      
+      
+      <link rel="icon" href="../images/nesi_ga.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.12">
+    
+    
+      
+        <title>Exploring History - Introduction to Git</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Mukta";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#exploring-history" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Introduction to Git" class="md-header__button md-logo" aria-label="Introduction to Git" data-md-component="logo">
+      
+  <img src="../images/nesi_ga.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Introduction to Git
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Exploring History
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_3" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_3">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/otagobioinformaticsspringschool/intro-git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    otagobioinformaticsspringschool/shell-for-bioinformatics
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Introduction to Git" class="md-nav__button md-logo" aria-label="Introduction to Git" data-md-component="logo">
+      
+  <img src="../images/nesi_ga.png" alt="logo">
+
+    </a>
+    Introduction to Git
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/otagobioinformaticsspringschool/intro-git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    otagobioinformaticsspringschool/shell-for-bioinformatics
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1_overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_summary_setup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3_create_repo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating a Repository
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4_tracking_changes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tracking Changes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Exploring History
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6_ignoring_things/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ignoring Things
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7_remotes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Remotes in Github
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="exploring-history">Exploring History<a class="headerlink" href="#exploring-history" title="Permanent link">&para;</a></h1>
+<hr />
+<p>title: Exploring History
+teaching: 25
+exercises: 0</p>
+<hr />
+<div class="admonition clipboard-list">
+<p class="admonition-title">Objectives</p>
+<ul>
+<li>Explain what the HEAD of a repository is and how to use it.</li>
+<li>Identify and use Git commit numbers.</li>
+<li>Compare various versions of tracked files.</li>
+<li>Restore old versions of files.</li>
+</ul>
+</div>
+<p>As we saw in the previous episode, we can refer to commits by their
+identifiers. You can refer to the <em>most recent commit</em> of the working
+directory by using the identifier <code>HEAD</code>.</p>
+<p>We've been adding one line at a time to <code>README.txt</code>, so it's easy to track our
+progress by looking, so let's do that using our <code>HEAD</code>s. Before we start,
+let's make a change to <code>README.txt</code>, adding yet another line.</p>
+<div class="admonition terminal">
+<p class="admonition-title">code</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>nano<span class="w"> </span>README.txt
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>$<span class="w"> </span>cat<span class="w"> </span>README.txt
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="go">Project notes for the variant calling workflow</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="go">1. Perform QC</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="go">2. Align reads</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="go">3. Variant call</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="go">4. Variant filtering</span>
+</code></pre></div>
+</div>
+<p>Now, let's see what we get.</p>
+<div class="admonition terminal">
+<p class="admonition-title">code</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>git<span class="w"> </span>diff<span class="w"> </span>HEAD<span class="w"> </span>README.txt
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="go">diff --git a/README.txt b/README.txt</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="go">index b36abfd..0848c8d 100644</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="go">--- a/README.txt</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="go">+++ b/README.txt</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="go">@@ -3,3 +3,4 @@</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="go">Project notes for the variant calling workflow</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="go">1. Perform QC</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="go">2. Align reads</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="go">3. Variant call</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="go">+4. Variant filtering</span>
+</code></pre></div>
+</div>
+<p>which is the same as what you would get if you leave out <code>HEAD</code> (try it). The
+real goodness in all this is when you can refer to previous commits. We do
+that by adding <code>~1</code>
+(where "~" is "tilde", pronounced [<strong>til</strong>-d*uh*])
+to refer to the commit one before <code>HEAD</code>.</p>
+<div class="admonition terminal">
+<p class="admonition-title">code</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span>git<span class="w"> </span>diff<span class="w"> </span>HEAD~1<span class="w"> </span>README.txt
+</code></pre></div>
+</div>
+<p>If we want to see the differences between older commits we can use <code>git diff</code>
+again, but with the notation <code>HEAD~1</code>, <code>HEAD~2</code>, and so on, to refer to them:</p>
+<div class="admonition terminal">
+<p class="admonition-title">code</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$<span class="w"> </span>git<span class="w"> </span>diff<span class="w"> </span>HEAD~4<span class="w"> </span>README.txt
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="go">diff --git a/README.txt b/README.txt</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="go">index df0654a..b36abfd 100644</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="go">--- a/README.txt</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="go">+++ b/README.txt</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="go">@@ -1 +1,6 @@</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="go">Project notes for the variant calling workflow</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="go">+</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="go">+1. Perform QC</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="go">+2. Align reads</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="go">+3. Variant call</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="go">+4. Variant filtering</span>
+</code></pre></div>
+</div>
+<p>We could also use <code>git show</code> which shows us what changes we made at an older commit as
+well as the commit message, rather than the <em>differences</em> between a commit and our
+working directory that we see by using <code>git diff</code>.</p>
+<div class="admonition terminal">
+<p class="admonition-title">code</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$<span class="w"> </span>git<span class="w"> </span>show<span class="w"> </span>HEAD~4<span class="w"> </span>README.txt
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="go">commit f22b25e3233b4645dabd0d81e651fe074bd8e73b</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="go">Author: Vlad Dracula &lt;vlad@tran.sylvan.ia&gt;</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="go">Date:   Thu Aug 22 09:51:46 2013 -0400</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="go">    Start notes project</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="go">diff --git a/README.txt b/README.txt</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="go">new file mode 100644</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="go">index 0000000..df0654a</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="go">--- /dev/null</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="go">+++ b/README.txt</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="go">@@ -0,0 +1 @@</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="go">+Project notes for the variant calling workflow</span>
+</code></pre></div>
+</div>
+<p>In this way,
+we can build up a chain of commits.
+The most recent end of the chain is referred to as <code>HEAD</code>;
+we can refer to previous commits using the <code>~</code> notation,
+so <code>HEAD~1</code>
+means "the previous commit",
+while <code>HEAD~123</code> goes back 123 commits from where we are now.</p>
+<p>We can also refer to commits using
+those long strings of digits and letters
+that <code>git log</code> displays.
+These are unique IDs for the changes,
+and "unique" really does mean unique:
+every change to any set of files on any computer
+has a unique 40-character identifier.
+Our first commit was given the ID
+<code>f22b25e3233b4645dabd0d81e651fe074bd8e73b</code>,
+so let's try this:</p>
+<div class="admonition terminal">
+<p class="admonition-title">code</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>$<span class="w"> </span>git<span class="w"> </span>diff<span class="w"> </span>f22b25e3233b4645dabd0d81e651fe074bd8e73b<span class="w"> </span>README.txt
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="go">diff --git a/README.txt b/README.txt</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="go">index df0654a..93a3e13 100644</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="go">--- a/README.txt</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="go">+++ b/README.txt</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="go">@@ -1 +1,6 @@</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="go">Project notes for the variant calling workflow</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="go">+</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="go">+1. Perform QC</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="go">+2. Align reads</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="go">+3. Variant call</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="go">+4. Variant filtering</span>
+</code></pre></div>
+</div>
+<p>That's the right answer,
+but typing out random 40-character strings is annoying,
+so Git lets us use just the first few characters (typically seven for normal size projects):</p>
+<div class="admonition terminal">
+<p class="admonition-title">code</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>$<span class="w"> </span>git<span class="w"> </span>diff<span class="w"> </span>f22b25e<span class="w"> </span>README.txt
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="go">diff --git a/README.txt b/README.txt</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="go">index df0654a..93a3e13 100644</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="go">--- a/README.txt</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="go">+++ b/README.txt</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="go">@@ -1 +1,6 @@</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="go">Project notes for the variant calling workflow</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="go">+</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="go">+1. Perform QC</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="go">+2. Align reads</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="go">+3. Variant call</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="go">+4. Variant filtering</span>
+</code></pre></div>
+</div>
+<p>All right! So
+we can save changes to files and see what we've changed. Now, how
+can we restore older versions of things?
+Let's suppose we change our mind about the last update to
+<code>README.txt</code> (the "ill-considered change").</p>
+<p><code>git status</code> now tells us that the file has been changed,
+but those changes haven't been staged:</p>
+<div class="admonition terminal">
+<p class="admonition-title">code</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>$<span class="w"> </span>git<span class="w"> </span>status
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="go">On branch main</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="go">Changes not staged for commit:</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="go">(use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="go">(use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="go">    modified:   README.txt</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="go">no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</span>
+</code></pre></div>
+</div>
+<p>We can put things back the way they were
+by using <code>git checkout</code>:</p>
+<div class="admonition terminal">
+<p class="admonition-title">code</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>HEAD<span class="w"> </span>README.txt
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>$<span class="w"> </span>cat<span class="w"> </span>README.txt
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="go">Project notes for the variant calling workflow</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="go">1. Perform QC</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="go">2. Align reads</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="go">3. Variant call</span>
+</code></pre></div>
+</div>
+<p>As you might guess from its name,
+<code>git checkout</code> checks out (i.e., restores) an old version of a file.
+In this case,
+we're telling Git that we want to recover the version of the file recorded in <code>HEAD</code>,
+which is the last saved commit.
+If we want to go back even further,
+we can use a commit identifier instead:</p>
+<div class="admonition terminal">
+<p class="admonition-title">code</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>f22b25e<span class="w"> </span>README.txt
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>$<span class="w"> </span>cat<span class="w"> </span>README.txt
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="go">Project notes for the variant calling workflow</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>$<span class="w"> </span>git<span class="w"> </span>status
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="go">On branch main</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="go">Changes to be committed:</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="go">(use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="go">    modified:   README.txt</span>
+</code></pre></div>
+</div>
+<p>Notice that the changes are currently in the staging area.
+Again, we can put things back the way they were
+by using <code>git checkout</code>:</p>
+<div class="admonition terminal">
+<p class="admonition-title">code</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>HEAD<span class="w"> </span>README.txt
+</code></pre></div>
+</div>
+<div class="admonition material-bell">
+<p class="admonition-title">Don't Lose Your HEAD</p>
+<p>Above we used</p>
+<div class="admonition terminal">
+<p class="admonition-title">code</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>f22b25e<span class="w"> </span>README.txt
+</code></pre></div>
+</div>
+<p>to revert <code>README.txt</code> to its state after the commit <code>f22b25e</code>. But be careful!
+The command <code>checkout</code> has other important functionalities and Git will misunderstand
+your intentions if you are not accurate with the typing. For example,
+if you forget <code>README.txt</code> in the previous command.</p>
+<div class="admonition terminal">
+<p class="admonition-title">code</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>f22b25e
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>Note: checking out &#39;f22b25e&#39;.
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>You are in &#39;detached HEAD&#39; state. You can look around, make experimental
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>changes and commit them, and you can discard any commits you make in this
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>state without impacting any branches by performing another checkout.
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>If you want to create a new branch to retain commits you create, you may
+<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>do so (now or later) by using -b with the checkout command again. Example:
+<a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a>
+<a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a>git checkout -b &lt;new-branch-name&gt;
+<a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a>
+<a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a>HEAD is now at f22b25e Start notes on Mars as a base
+</code></pre></div>
+</div>
+<p>The "detached HEAD" is like "look, but don't touch" here,
+so you shouldn't make any changes in this state.
+After investigating your repo's past state, reattach your <code>HEAD</code> with <code>git checkout main</code>.</p>
+</div>
+<p>It's important to remember that
+we must use the commit number that identifies the state of the repository
+<em>before</em> the change we're trying to undo.
+A common mistake is to use the number of
+the commit in which we made the change we're trying to discard.
+In the example below, we want to retrieve the state from before the most
+recent commit (<code>HEAD~1</code>), which is commit <code>f22b25e</code>:</p>
+<p><a class="glightbox" href="../images/git-checkout.svg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Git Checkout" src="../images/git-checkout.svg" /></a></p>
+<p>So, to put it all together,
+here's how Git works in cartoon form:</p>
+<p><a class="glightbox" href="../images/git_staging.svg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="https://figshare.com/articles/How_Git_works_a_cartoon/1328266" src="../images/git_staging.svg" /></a></p>
+<div class="admonition material-bell">
+<p class="admonition-title">Simplifying the Common Case</p>
+<p>If you read the output of <code>git status</code> carefully,
+you'll see that it includes this hint:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="go">(use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)</span>
+</code></pre></div>
+<p>As it says,
+<code>git checkout</code> without a version identifier restores files to the state saved in <code>HEAD</code>.
+The double dash <code>--</code> is needed to separate the names of the files being recovered
+from the command itself:
+without it,
+Git would try to use the name of the file as the commit identifier.</p>
+</div>
+<p>The fact that files can be reverted one by one
+tends to change the way people organize their work.
+If everything is in one large document,
+it's hard (but not impossible) to undo changes to the introduction
+without also undoing changes made later to the conclusion.
+If the introduction and conclusion are stored in separate files,
+on the other hand,
+moving backward and forward in time becomes much easier.</p>
+<div class="admonition file-code">
+<p class="admonition-title">Recovering Older Versions of a File</p>
+<p>Jennifer has made changes to the Python script that she has been working on for weeks, and the
+modifications she made this morning "broke" the script and it no longer runs. She has spent
+~ 1hr trying to fix it, with no luck...</p>
+<p>Luckily, she has been keeping track of her project's versions using Git! Which commands below will
+let her recover the last committed version of her Python script called
+<code>data_cruncher.py</code>?</p>
+<ol>
+<li>
+<p><code>$ git checkout HEAD</code></p>
+</li>
+<li>
+<p><code>$ git checkout HEAD data_cruncher.py</code></p>
+</li>
+<li>
+<p><code>$ git checkout HEAD~1 data_cruncher.py</code></p>
+</li>
+<li>
+<p><code>$ git checkout &lt;unique ID of last commit&gt; data_cruncher.py</code></p>
+</li>
+<li>
+<p>Both 2 and 4</p>
+</li>
+</ol>
+<details class="solution">
+<summary>Solution</summary>
+<p>The answer is (5)-Both 2 and 4.</p>
+<p>The <code>checkout</code> command restores files from the repository, overwriting the files in your working
+directory. Answers 2 and 4 both restore the <em>latest</em> version <em>in the repository</em> of the file
+<code>data_cruncher.py</code>. Answer 2 uses <code>HEAD</code> to indicate the <em>latest</em>, whereas answer 4 uses the
+unique ID of the last commit, which is what <code>HEAD</code> means.</p>
+<p>Answer 3 gets the version of <code>data_cruncher.py</code> from the commit <em>before</em> <code>HEAD</code>, which is NOT
+what we wanted.</p>
+<p>Answer 1 can be dangerous! Without a filename, <code>git checkout</code> will restore <strong>all files</strong>
+in the current directory (and all directories below it) to their state at the commit specified.
+This command will restore <code>data_cruncher.py</code> to the latest commit version, but it will also
+restore <em>any other files that are changed</em> to that version, erasing any changes you may
+have made to those files!
+As discussed above, you are left in a <em>detached</em> <code>HEAD</code> state, and you don't want to be there.</p>
+</details>
+</div>
+<div class="admonition file-code">
+<p class="admonition-title">Reverting a Commit</p>
+<p>Jennifer is collaborating with colleagues on her Python script. She
+realizes her last commit to the project's repository contained an error, and
+wants to undo it. Jennifer wants to undo correctly so everyone in the project's
+repository gets the correct change. The command <code>git revert [erroneous commit ID]</code> will create a
+new commit that reverses the erroneous commit.</p>
+<p>The command <code>git revert</code> is
+different from <code>git checkout [commit ID]</code> because <code>git checkout</code> returns the
+files not yet committed within the local repository to a previous state, whereas <code>git revert</code>
+reverses changes committed to the local and project repositories.</p>
+<p>Below are the right steps and explanations for Jennifer to use <code>git revert</code>,
+what is the missing command?</p>
+<ol>
+<li>
+<p><code>________ # Look at the git history of the project to find the commit ID</code></p>
+</li>
+<li>
+<p>Copy the ID (the first few characters of the ID, e.g. 0b1d055).</p>
+</li>
+<li>
+<p><code>git revert [commit ID]</code></p>
+</li>
+<li>
+<p>Type in the new commit message.</p>
+</li>
+<li>
+<p>Save and close</p>
+<details class="solution">
+<summary>Solution</summary>
+<p>The command <code>git log</code> lists project history with commit IDs.</p>
+<p>The command <code>git show HEAD</code> shows changes made at the latest commit, and lists
+the commit ID; however, Jennifer should double-check it is the correct commit, and no one
+else has committed changes to the repository.</p>
+</details>
+</li>
+</ol>
+</div>
+<div class="admonition file-code">
+<p class="admonition-title">Understanding Workflow and History</p>
+<p>What is the output of the last command in</p>
+<div class="admonition terminal">
+<p class="admonition-title">code</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>planets
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Venus is beautiful and full of love&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>venus.txt
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>venus.txt
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Venus is too hot to be suitable as a base&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>venus.txt
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Comment on Venus as an unsuitable base&quot;</span>
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>HEAD<span class="w"> </span>venus.txt
+<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>$<span class="w"> </span>cat<span class="w"> </span>venus.txt<span class="w"> </span><span class="c1">#this will print the contents of venus.txt to the screen</span>
+</code></pre></div>
+</div>
+<ol>
+<li>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="go">Venus is too hot to be suitable as a base</span>
+</code></pre></div>
+</li>
+<li>
+<div class="highlight"><pre><span></span><code>```output
+Venus is beautiful and full of love
+```
+</code></pre></div>
+</li>
+<li>
+<div class="highlight"><pre><span></span><code>```output
+Venus is beautiful and full of love
+Venus is too hot to be suitable as a base
+```
+</code></pre></div>
+</li>
+<li>
+<div class="highlight"><pre><span></span><code>```output
+Error because you have changed venus.txt without committing the changes
+```
+</code></pre></div>
+</li>
+</ol>
+<details class="solution">
+<summary>Solution</summary>
+<p>The answer is 2.</p>
+<p>The command <code>git add venus.txt</code> places the current version of <code>venus.txt</code> into the staging area.
+The changes to the file from the second <code>echo</code> command are only applied to the working copy,
+not the version in the staging area.</p>
+<p>So, when <code>git commit -m "Comment on Venus as an unsuitable base"</code> is executed,
+the version of <code>venus.txt</code> committed to the repository is the one from the staging area and
+has only one line.</p>
+<p>At this time, the working copy still has the second line (and
+<code>git status</code> will show that the file is modified). However, <code>git checkout HEAD venus.txt</code>
+replaces the working copy with the most recently committed version of <code>venus.txt</code>.</p>
+<p>So, <code>cat venus.txt</code> will output</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="go">Venus is beautiful and full of love.</span>
+</code></pre></div>
+</details>
+</div>
+<div class="admonition file-code">
+<p class="admonition-title">Checking Understanding of <code>git diff</code></p>
+<p>Consider this command: <code>git diff HEAD~9 README.txt</code>. What do you predict this command
+will do if you execute it? What happens when you do execute it? Why?</p>
+<p>Try another command, <code>git diff [ID] README.txt</code>, where [ID] is replaced with
+the unique identifier for your most recent commit. What do you think will happen,
+and what does happen?</p>
+</div>
+<div class="admonition file-code">
+<p class="admonition-title">Getting Rid of Staged Changes</p>
+<p><code>git checkout</code> can be used to restore a previous commit when unstaged changes have
+been made, but will it also work for changes that have been staged but not committed?
+Make a change to <code>README.txt</code>, add that change using <code>git add</code>,
+then use <code>git checkout</code> to see if you can remove your change.</p>
+<details class="solution">
+<summary>Solution</summary>
+<p>After adding a change, <code>git checkout</code> can not be used directly.
+Let's look at the output of <code>git status</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="go">On branch main</span>
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="go">Changes to be committed:</span>
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="go">(use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)</span>
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="go">        modified:   README.txt</span>
+</code></pre></div>
+<p>Note that if you don't have the same output
+you may either have forgotten to change the file,
+or you have added it <em>and</em> committed it.</p>
+<p>Using the command <code>git checkout -- README.txt</code> now does not give an error,
+but it does not restore the file either.
+Git helpfully tells us that we need to use <code>git reset</code> first
+to unstage the file:</p>
+<div class="admonition terminal">
+<p class="admonition-title">code</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>$<span class="w"> </span>git<span class="w"> </span>reset<span class="w"> </span>HEAD<span class="w"> </span>README.txt
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="go">Unstaged changes after reset:</span>
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="go">M   README.txt</span>
+</code></pre></div>
+</div>
+<p>Now, <code>git status</code> gives us:</p>
+<div class="admonition terminal">
+<p class="admonition-title">code</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>$<span class="w"> </span>git<span class="w"> </span>status
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="go">On branch main</span>
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="go">Changes not staged for commit:</span>
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="go">(use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span>
+<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="go">(use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)</span>
+<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>
+<a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a><span class="go">        modified:   README.txt</span>
+<a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a>
+<a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a><span class="go">no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</span>
+</code></pre></div>
+</div>
+<p>This means we can now use <code>git checkout</code> to restore the file
+to the previous commit:</p>
+<div class="admonition terminal">
+<p class="admonition-title">code</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>--<span class="w"> </span>README.txt
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>$<span class="w"> </span>git<span class="w"> </span>status
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="go">On branch main</span>
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="go">nothing to commit, working tree clean</span>
+</code></pre></div>
+</div>
+</details>
+</div>
+<div class="admonition file-code">
+<p class="admonition-title">Explore and Summarize Histories</p>
+<p>Exploring history is an important part of Git, and often it is a challenge to find
+the right commit ID, especially if the commit is from several months ago.</p>
+<p>Imagine the <code>vc_project</code> project has more than 50 files.
+You would like to find a commit that modifies some specific text in <code>README.txt</code>.
+When you type <code>git log</code>, a very long list appeared.
+How can you narrow down the search?</p>
+<p>Recall that the <code>git diff</code> command allows us to explore one specific file,
+e.g., <code>git diff README.txt</code>. We can apply a similar idea here.</p>
+<div class="admonition terminal">
+<p class="admonition-title">code</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>$<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>README.txt
+</code></pre></div>
+</div>
+<p>Unfortunately some of these commit messages are very ambiguous, e.g., <code>update files</code>.
+How can you search through these files?</p>
+<p>Both <code>git diff</code> and <code>git log</code> are very useful and they summarize a different part of the history
+for you.
+Is it possible to combine both? Let's try the following:</p>
+<div class="admonition terminal">
+<p class="admonition-title">code</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>$<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>--patch<span class="w"> </span>README.txt
+</code></pre></div>
+</div>
+<p>You should get a long list of output, and you should be able to see both commit messages and
+the difference between each commit.</p>
+<p>Question: What does the following command do?</p>
+<div class="admonition terminal">
+<p class="admonition-title">code</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>$<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>--patch<span class="w"> </span>HEAD~9<span class="w"> </span>*.txt
+</code></pre></div>
+</div>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Keypoints</p>
+<ul>
+<li><code>git diff</code> displays differences between commits.</li>
+<li><code>git checkout</code> recovers old versions of files.</li>
+</ul>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../4_tracking_changes/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Tracking Changes">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Tracking Changes
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../6_ignoring_things/" class="md-footer__link md-footer__link--next" aria-label="Next: Ignoring Things">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Ignoring Things
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Intermediate Shell for Bioinformatics workshop material is licensed under a <a rel="noopener" target="_blank" href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU General Public License v3.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "navigation.footer", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.6c14ae12.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>
