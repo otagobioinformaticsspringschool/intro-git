@@ -359,8 +359,6 @@ we'll add another line to the file:
     $ cat README.txt
     ```
 
-!!! terminal "code"
-
     ```output
     Project notes for the variant calling workflow
 
@@ -373,8 +371,6 @@ we'll add another line to the file:
     ```bash
     $ git diff
     ```
-
-!!! terminal "code"
 
     ```output
     diff --git a/README.txt b/README.txt
@@ -414,8 +410,6 @@ if we do this:
     $ git diff --staged
     ```
 
-!!! terminal "code"
-
     ```output
     diff --git a/README.txt b/README.txt
     index 315bf3a..b36abfd 100644
@@ -451,8 +445,6 @@ check our status:
     ```bash
     $ git status
     ```
-
-
 
     ```output
     On branch main
